@@ -15,24 +15,24 @@
 
     <?php require_once '../components/header.php'; ?>
 
-    <main id="mainLogin">
-        <img id="banner_login" src="../images/banners/banner login 1.svg" alt="">
+    <main id="main2fa">
 
-        <form id="form_login" action="">
+    <img id="banner_2fa" src="../images/banners/banner login 1.svg" alt="">
 
-            <img id="logo_login_login" src="../images/logos/swiftnet branco logo.svg" alt=""><br>
+        <form id="form_2fa">
 
-            <input id="input_login" placeholder="Login" type="text"><br>
-            <input id="input_senha_login" placeholder="Senha" type="text"><br>
-            <a id="btn_cadastro" href="cadastro.php"> Não possui conta ? Cadastre-se aqui.</a><br>
+            <h4>Qual o nome completo da sua mãe?</h4><br>
+            <input id="input_2fa" type="text" placeholder="Resposta"><br>
 
-            <button id="btn_login" type="submit"> Login </button><br>
-
-
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+            </button>
 
         </form>
 
-        
+
     </main>
 
     <?php require_once '../components/footer.php'; ?>

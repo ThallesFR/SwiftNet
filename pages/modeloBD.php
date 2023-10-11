@@ -14,6 +14,8 @@
     <?php require_once '../components/header.php'; ?>
   
     <main id="modeloDbMain">
+
+        <img id="img-DB" src="../images/bd/616a2b0f-227d-4d1e-9aa1-d97cbbf4537d.png" alt="">
         
     </main>
     

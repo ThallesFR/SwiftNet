@@ -9,49 +9,49 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Componentes                       ////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*///////////////////////////////////////////////////////////////  header /////////////////////////////////////////////////////////////////*/
 header {
-    height: 100px;
-    display: flex;
-    justify-content:left;/*alinha as divs */
-    background:#5E1C6F;
-    font-size: 20px ;
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.61);
-    padding-right: 55px;
+  height: 100px;
+  display: flex;
+  justify-content: left;
+  /*alinha as divs */
+  background: #5E1C6F;
+  font-size: 20px;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.61);
+  padding-right: 55px;
 }
 
 #logoHeader {
-    width: 300px;
-    padding-top: 8px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    font-size: 34px;
-    font-weight: 700;
+  width: 300px;
+  padding-top: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 34px;
+  font-weight: 700;
 }
 
 #logoHeader:hover {
   font-weight: 800;
 }
 
-#logoHeader img{
-      width: 30%;
+#logoHeader img {
+  width: 30%;
 }
 
-#logo_header_img{
-    width: 180px;        
+#logo_header_img {
+  width: 180px;
 }
 
-#nav{
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: right ;
+#nav {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
 }
 
 #menu {
@@ -66,7 +66,7 @@ header {
 #menu a {
   display: block;
   padding-right: 60px;
-  color:white;
+  color: white;
   text-decoration: none;
 }
 
@@ -74,21 +74,23 @@ header {
   font-weight: 500;
 }
 
-#loginNav{
-    display: none;/*--flex__*/
-    height: 100%;
-    width: 100px;
-    color:white;
-    text-decoration: none;
-    align-items: center;
+#loginNav {
+  display: flex;
+  /*--_*/
+  height: 100%;
+  width: 100px;
+  color: white;
+  text-decoration: none;
+  align-items: center;
 }
 
 #loginNav:hover {
   font-weight: 500;
 }
 
-#perfilDiv{
+#perfilDiv {
   display: flex;
+  /* deixa o perfil oculto*/
   height: 100%;
   width: 100px;
   align-items: center;
@@ -96,7 +98,7 @@ header {
   color: white;
 }
 
-#perfilDiv a div{
+#perfilDiv a div {
   margin-right: 10px;
 }
 
@@ -107,10 +109,10 @@ header {
 }
 
 #perfilDiv :hover {
-font-weight: 500;
+  font-weight: 500;
 }
 
-#iconUserHeader{
+#iconUserHeader {
   height: 30px;
   width: 30px;
 }
@@ -125,7 +127,7 @@ font-weight: 500;
   header {
     height: 60px;
     align-items: center;
-    padding-right:0px;
+    padding-right: 0px;
   }
 
   #logoHeader {
@@ -134,7 +136,7 @@ font-weight: 500;
     font-weight: 500;
   }
 
-  #logoHeader img{
+  #logoHeader img {
     width: 50px;
   }
 
@@ -153,15 +155,15 @@ font-weight: 500;
     margin-right: auto;
   }
 
-  #loginNav{
+  #loginNav {
     width: 50px;
   }
 
-  #perfilDiv div{
+  #perfilDiv div {
     display: none;
   }
-  
-  #perfilDiv{
+
+  #perfilDiv {
     width: 50px;
     justify-content: end;
   }
@@ -182,7 +184,7 @@ font-weight: 500;
     font-weight: bold;
   }
 
- #btn-mobile {
+  #btn-mobile {
     display: flex;
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -227,16 +229,15 @@ font-weight: 500;
 
 
 /*//// ////////////////////////////////////////////////// footer /////////////////////////////////////////  ////*/
-#footer{
-    margin-top: 15vh;
-    padding-bottom: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: #2E2E2E;
-    color: white;
+#footer {
+  padding-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: #2E2E2E;
+  color: white;
 }
 
-#aFooter{
+#aFooter {
   color: white;
   text-decoration: none;
   height: 60px;
@@ -244,61 +245,61 @@ font-weight: 500;
   font-size: x-large;
 }
 
-#logoFooter{
+#logoFooter {
   margin-top: 15px;
   width: 100px;
 }
 
 
 
-#itensFooter{
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
+#itensFooter {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
-#itensFooter h6{
-    margin-top: 3vh;
-    color: white;
-    font-size: x-small;
+#itensFooter h6 {
+  margin-top: 3vh;
+  color: white;
+  font-size: x-small;
 }
 
-#btns-footer{
-    margin: 10px;
-    margin-right: 50px;
+#btns-footer {
+  margin: 10px;
+  margin-right: 50px;
 }
 
-#btns-footer a{
-    text-decoration: none;
+#btns-footer a {
+  text-decoration: none;
 }
-.iconesFooter{
-    margin-left: 10px;
-    height: 30px;
-    width: 30px;
-    color: white;
 
+.iconesFooter {
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  color: white;
 }
 
 @media (max-width: 500px) {
-    #logoFooter{
-        width: 50px;
-    }
-
-    .iconesFooter{
-        height: 20px;
-        width: 20px;
-        margin-left: 3px;
-        margin-right:auto;
+  #logoFooter {
+    width: 50px;
   }
 
-    #btns-footer{
-         width:50%;
-         margin-right: auto;
+  .iconesFooter {
+    height: 20px;
+    width: 20px;
+    margin-left: 3px;
+    margin-right: auto;
   }
 
-    #itensFooter h6{
-        margin-top: 2%;
-        font-size: xx-small;
+  #btns-footer {
+    width: 50%;
+    margin-right: auto;
+  }
+
+  #itensFooter h6 {
+    margin-top: 2%;
+    font-size: xx-small;
   }
 }
 
@@ -307,17 +308,17 @@ font-weight: 500;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*//////////////////////////////////////////////////////////// carrossel /////////////////////////////////////*/
-#carouselExampleInterval{
+#carouselExampleInterval {
   width: 90%;
   margin-left: 5%;
   margin-top: 10px;
 }
 
-@media(max-width:768px){
-  #carouselExampleInterval img{
-      height: 20vh;
-  
+@media(max-width:768px) {
+  #carouselExampleInterval img {
+    height: 20vh;
   }
+
   #carouselExampleInterval {
     width: 100%;
     margin-left: 0%;
@@ -325,18 +326,18 @@ font-weight: 500;
 }
 
 /*/////////////////////////////////////////////////////////////   cards //////////////////////////////////////*/
-#sectionHome{
+#sectionHome {
   margin: 5%;
 }
 
-#sectionHome h1{
+#sectionHome h1 {
   color: #5E1C6F;
   margin-bottom: 5%;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.089);
 }
 
-#mainHome{
+#mainHome {
   min-height: 100vh;
 }
 
@@ -354,38 +355,38 @@ font-weight: 500;
   color: #5E1C6F;
 }
 
-.containerCard{
+.containerCard {
   text-decoration: none;
   padding: 10px;
   padding-top: 30px;
   width: 20vw;
   height: 250px;
-  background-color:#5e1c6fd6;
+  background-color: #5e1c6fd6;
   border: 1px solid rgba(0, 0, 0, 0.407);
   border-radius: 20px;
   text-align: center;
   color: white;
 }
 
-.containerCard:hover{
+.containerCard:hover {
   box-shadow: 2px 20px 25px rgb(0, 0, 0);
-  background: linear-gradient( #5E1C6F, #902DA9);
+  background: linear-gradient(#5E1C6F, #902DA9);
 }
 
-@media(max-width: 1024px){
-  #planosHome{
+@media(max-width: 1024px) {
+  #planosHome {
     display: block;
-  width: 100%;
+    width: 100%;
   }
 
   .containerCard {
-    display: block; /* Alterado de inline para block */
+    display: block;
+    /* Alterado de inline para block */
     width: 90%;
     height: 200px;
     background-color: #5E1C6F;
     margin-bottom: 5%;
   }
-
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -395,14 +396,14 @@ font-weight: 500;
   margin: 5%;
 }
 
-#apresentacao{
+#apresentacao {
   width: 100px;
   display: flex;
   align-items: end;
   justify-content: space-between;
 }
 
-#iconUser{
+#iconUser {
   color: #902DA9;
 }
 
@@ -413,26 +414,26 @@ font-weight: 500;
 }
 
 
-#mainPerfil section{
+#mainPerfil section {
   margin: 5%;
 }
 
-#mainPerfil h1{
+#mainPerfil h1 {
   color: #902DA9;
   margin-bottom: 5%;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.089);
 }
 
-#dadosPessoais{
-  padding-left: 2% ;
+#dadosPessoais {
+  padding-left: 2%;
 }
 
 
-#containerPlanoPerfil{
+#containerPlanoPerfil {
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.11);
-  margin-left:5%;
+  margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 2%;
   padding: 1%;
@@ -441,19 +442,18 @@ font-weight: 500;
   align-items: center;
   justify-content: space-between;
   text-align: center;
-
 }
 
-h2{
+h2 {
   width: 100%;
   text-align: center;
   color: rgba(0, 0, 0, 0.521);
 }
 
-@media(max-width: 750px){
-  #containerPlanoPerfil{
-      flex-direction: column;
-      padding-bottom: 5%;
+@media(max-width: 750px) {
+  #containerPlanoPerfil {
+    flex-direction: column;
+    padding-bottom: 5%;
   }
 }
 
@@ -461,7 +461,7 @@ h2{
 ///////////////////////////////////////////////////////////////              Usuários                       //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 #usuariosMain {
-  min-height:  100vh;
+  min-height: 100vh;
   text-align: center;
   margin: 0 auto;
   padding: 20px;
@@ -495,12 +495,12 @@ h2{
   text-align: center;
 }
 
-.camposListaUsers{
+.camposListaUsers {
   width: 20%;
   text-decoration: none;
 }
 
-#deleteLixeira{
+#deleteLixeira {
   border: none;
   background: none;
 }
@@ -524,10 +524,9 @@ h2 {
     padding: 0px;
   }
 
-  #containerUsuario h5{
+  #containerUsuario h5 {
     font-size: x-small;
   }
-  
 }
 
 
@@ -536,12 +535,12 @@ h2 {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 #planosMain {
   margin-top: 20px;
-  min-height:  100vh;
+  min-height: 100vh;
   width: 80%;
   margin-left: 5vh;
 }
 
-#planosMain h1{
+#planosMain h1 {
   margin-left: 3vw;
   width: 90vw;
   color: #902DA9;
@@ -551,17 +550,17 @@ h2 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.089);
 }
 
-.containerTiposPlanos{
+.containerTiposPlanos {
   display: flex;
   justify-content: space-between;
 }
 
-.containerPlanos{
+.containerPlanos {
   margin-left: 5vw;
   margin-bottom: 5vh;
   padding: 30px;
   width: 20vw;
-  background-color:white;
+  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.407);
   border-radius: 20px;
   text-align: left;
@@ -569,56 +568,57 @@ h2 {
   font-weight: 600;
 }
 
-.containerPlanos:hover{
+.containerPlanos:hover {
   color: white;
   box-shadow: 2px 20px 25px rgb(0, 0, 0);
-  background: linear-gradient( #5E1C6F, #902DA9);
-  
+  background: linear-gradient(#5E1C6F, #902DA9);
+
 }
 
 .containerPlanos:hover h2,
 .containerPlanos:hover .descricaoPlano,
 .containerPlanos:hover .descricaoPlano button {
-  color: white; /* Altere a cor do texto do h2 e .descricaoPlano quando .containerPlanos estiver em :hover */
+  color: white;
+  /* Altere a cor do texto do h2 e .descricaoPlano quando .containerPlanos estiver em :hover */
 }
 
-.containerPlanos h2{
+.containerPlanos h2 {
   color: #902DA9;
   text-align: left;
 }
 
-.descricaoPlano{
+.descricaoPlano {
   color: #2E2E2E;
 }
 
-.contratarPlano{
+.contratarPlano {
   display: flex;
   width: 100%;
   height: 60px;
   justify-content: center;
 }
 
-.contratarPlano button{
+.contratarPlano button {
   width: 70%;
-  border-radius: 35px;  
+  border-radius: 35px;
   color: black;
   background-color: #E8DB66;
   border: none;
   font-weight: 700;
 }
 
-.descricaoPlano button{
+.descricaoPlano button {
   background: none;
   border: none;
   font-weight: 600;
 }
 
-@media(max-width: 1024px){
-  .containerTiposPlanos{
+@media(max-width: 1024px) {
+  .containerTiposPlanos {
     display: block;
   }
 
-  .containerPlanos{
+  .containerPlanos {
     width: 70vw;
   }
 }
@@ -626,37 +626,424 @@ h2 {
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Login                      ////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#mainLogin{
-  min-height: 100vh;
+#mainLogin {
+  width: 100%;
+  display: flex;
+  background-color: #33083d;
 }
 
+#banner_login {
+  width: 54vw;
+}
+
+#form_login {
+  display: block;
+  width: 46vw;
+  height: auto;
+  text-align: center;
+  background-color: #902DA9;
+  color: white;
+}
+
+#logo_login_login {
+  margin-top: 5vh;
+  width: 50%;
+  min-width: 200px;
+}
+
+#mainLogin input {
+  border-radius: 5px;
+  border-color: #2e2e2e4b;
+  padding: 5px;
+  width: 50%;
+  min-width: 215px;
+  outline-color: #5E1C6F;
+}
+
+#mainLogin input::placeholder {
+  color: #902DA9;
+}
+
+#input_login {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#form_login a {
+  border: 0px;
+  color: white;
+  text-decoration: none;
+}
+
+#btn_login {
+  margin-top: 10%;
+  border: 0px;
+  color: #902DA9;
+  background-color: white;
+  width: 30%;
+  padding: 2%;
+  font-weight: 700;
+  border-radius: 15px;
+}
+
+#btn_login:hover {
+  background-color: #33083d;
+  color: white;
+}
+
+@media(max-width: 1024px) {
+  #mainLogin {
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  #banner_login {
+    display: none;
+  }
+
+  #form_login {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  #form_login a {
+    font-size: small;
+  }
+
+}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Cadastro                    ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+#main_cadastro {
+  width: 100%;
+  display: flex;
+  background-color: #33083d;
+}
 
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////              2fa                    ///////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#banner_cadastro {
+  width: 54vw;
+}
 
+#cadastro_form {
+  padding-top: 2vh;
+  display: block;
+  width: 46vw;
+  height: auto;
+  text-align: center;
+  color: white;
+  background-color: #902DA9;
+  padding-bottom: 10px;
+}
 
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////              Sobre nós               ////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#sobreMain{
-  min-height: 100vh;
+#cadastro_form h3 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#div_info_cadastro {
+  margin-right: 20px;
+}
+
+#div_card_info_cadastro {
+  position: absolute;
+}
+
+#button_info {
+  background: none;
+  color: white;
+  border: 0px;
+  padding: 0px;
+  margin-left: 85%;
+}
+
+#card_info_cadastro {
+  background-color: #33083d;
+  font-size: small;
+  text-align: left;
+}
+
+#campos_cadastro {
+  display: flex;
+  padding: 20px;
+}
+
+#div1_cadastro {
+  margin-right: 2%;
+}
+
+#div1_cadastro,
+#div2_cadastro {
+  text-align: left;
+  width: 48%;
+}
+
+#div1_cadastro input,
+#div2_cadastro input {
+  margin-bottom: 10px;
+  width: 92%;
+  height: 40px;
+  border-radius: 9px;
+  border: 0px;
+  outline-color: #5E1C6F;
+}
+
+#div1_cadastro input::placeholder,
+#div2_cadastro input::placeholder {
+  color: #902DA9;
+}
+
+#datanasci,
+#UF {
+  color: #902DA9;
+}
+
+.error_input {
+  color: red !important;
+  outline: 2px solid rgb(212, 14, 14) !important;
+}
+
+.error_input:focus {
+  border-color: 2px solid rgb(212, 14, 14) !important;
+}
+
+#campus_sexo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92%;
+}
+
+#sexo_div input {
+  width: auto;
+  margin: 0px !important;
+}
+
+#div_botoes_cadastro {
+  padding-top: 60px;
+  width: 96%;
+  margin-left: 0px;
+  justify-content: space-around;
+}
+
+#div_botoes_cadastro button {
+  border: none;
+  width: 130px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media(max-width: 1024px) {
+  #main_cadastro {
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  #banner_cadastro {
+    display: none;
+  }
+
+  #cadastro_form {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  #card_info_cadastro {
+    width: 60vw !important;
+  }
+}
+
+@media(max-width: 550px) {
+  #campos_cadastro {
+    display: block;
+  }
+
+  #card_info_cadastro {
+    width: 60vw !important;
+    font-size: x-small;
+  }
+
+  #div1_cadastro,
+  #div2_cadastro {
+    width: 100%;
+  }
+
+  #div_botoes_cadastro {
+    padding-left: 4px;
+  }
+
+  #div_botoes_cadastro button {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
 }
 
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////              2fa                    ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#main2fa {
+  width: 100%;
+  display: flex;
+  background-color: #33083d;
+}
+
+#banner_2fa {
+  width: 54vw;
+}
+
+#main2fa input {
+  border-radius: 5px;
+  border-color: #2e2e2e4b;
+  padding: 5px;
+  width: 50%;
+  min-width: 215px;
+  outline-color: #5E1C6F;
+}
+
+#main2fa input::placeholder {
+  color: #902DA9;
+}
+
+#form_2fa {
+  display: inline-flex;
+  width: 46vw;
+  height: auto;
+  align-items: center;
+  background-color: #902DA9;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#form_2fa h4 {
+  color: white;
+}
+
+#form_2fa button {
+  margin-left: 300px;
+  color: white;
+  border: 0px;
+  background: none;
+}
+
+#form_2fa button:hover {
+  color: #33083d;
+}
+
+@media(max-width: 1024px) {
+  #main2fa {
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  #banner_2fa {
+    display: none;
+  }
+
+  #form_2fa {
+    height: 50vh;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  #form_2fa h4 {
+    font-size: small;
+  }
+
+  #form_2fa button {
+    margin-left: 50vw;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////              Sobre nós               ////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#sobreMain {
+  margin-top: 5%;
+  width: 90%;
+  padding-left: 5%;
+  min-height: 100vh;
+}
+
+#sobreMain h1 {
+  padding-bottom: 5px;
+  border-bottom: solid 2px #5E1C6F;
+  color: #5E1C6F;
+}
+
+#container_principal_sobre {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#container_principal_sobre div {
+  margin-right: 5px;
+}
+
+#container_principal_sobre h3 {
+  color: #5E1C6F;
+}
+
+#container_principal_sobre p {
+  color: #902DA9;
+}
+
+@media (max-width: 800px) {
+  #container_principal_sobre {
+    display: block;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////            Modelo BD           ////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#modeloDbMain{
-  min-height: 100vh;
+#modeloDbMain {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+
+#img-DB {
+  margin-top: 2%;
+  width: 80%;
+  box-shadow: 0px 6px 6px 0px black;
+}
+
+@media (max-width: 800px) {
+  #img-DB {
+    width: 100%;
+    height: 80%;
+  }
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////            Error            /////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#div1_erro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #902DA9;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
+#body_erro h1 {
+  width: 100%;
+  color: #902DA9;
+  text-align: center;
+}
