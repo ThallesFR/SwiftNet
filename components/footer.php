@@ -4,7 +4,7 @@
             SwiftNet
         </a>
         <div id="itensFooter">
-            <h6>© Copyright 2023 Thalles F. Rodrigues e Matheus B. de Albuquerque.</h6>
+            <h6>© Copyright 2023 Bruno B. Sacramento, Matheus B. de Albuquerque e Thalles F. Rodrigues.</h6>
             <div id="btns-footer" >
 
                 <a href="https://www.instagram.com" target="_blank">

@@ -19,7 +19,7 @@
     </div>
 
     <h1 id="h1_1_erro"> Sistema fora do ar. </h1>
-    <h1 id="h1_2_erro">Aguarde alguns instantes e atualize a page ...</h1>
+    <h1 id="h1_2_erro">Aguarde alguns instantes e atualize a página ...</h1>
 
 
 

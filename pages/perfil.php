@@ -33,12 +33,16 @@
                 <div id="infoPessoais">
                     <div id="infoPessoais1">
                         <label for="nome">Nome: <?= $userData['nome'] ?></label><br>
+                        <label for="nome_mae">Nome da Mãe: <?= $userData['nome_mae'] ?></label><br>
                         <label for="datanasci">Data de nascimento: <?= $userData['nascimento'] ?></label><br>
+                        <label for="sexo">Sexo:  <?= $userData['sexo'] ?></label><br>
                         <label for="cpf">CPF: <?= $userData['CPF'] ?></label><br>
+                        <label for="tel_fixo">Telefone fixo: <?= $userData['fixo'] ?></label><br>
                         <label for="tel_cel">Telefone celular: <?= $userData['celular'] ?></label><br>
                     </div>
                     <div id="infoPessoais2">
-                        <label for="email">E-mail: <?= $userData['email'] ?></label><br>
+                        <label for="email">E-mail: <?= $userData['email'] ?></label><br><br>
+                        <button id="alterar_senha" class="btn btn-secondary">Alterar senha</button>
                     </div>
                 </div><br><br>
 
@@ -48,6 +52,7 @@
                         <label>UF: <?= $userData['UF'] ?></label><br>
                         <label>Cidade: <?= $userData['cidade'] ?></label><br>
                         <label for="bairro">Bairro: <?= $userData['bairro'] ?></label><br>
+                        
                     </div>
                     <div>
                         <label for="rua">Rua</label><br>

@@ -2,10 +2,11 @@
 // Simulação de dados de usuário
 $userData = [
     'nome' => 'Nome do Usuário',
-    'nome_da_mae'=>'Maria do bairro',
+    'nome_mae'=>'Maria do bairro',
     'nascimento' => '01/01/1990',
     'CPF' => '123.456.789-00',
     'celular' => '(12) 3456-7890',
+    'fixo' => '(12) 3496-7890',
     'email' => 'usuario@example.com',
     'CEP' => '12345-678',
     'UF' => 'SP',
@@ -13,6 +14,8 @@ $userData = [
     'bairro' => 'Bairro Exemplo',
     'numero' => '123',
     'complemento' => 'Apto 101',
+    'sexo' => 'Masculino',
+    
 ];
 
 // Simulação de pedidos concluídos
