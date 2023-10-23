@@ -1,0 +1,16 @@
+# Esse código é usado para implementar a reescrita de URLs em um servidor web Apache. A reescrita de URLs é uma técnica que permite transformar URLs complexas ou não amigáveis em URLs mais simples e amigáveis para os usuários e também para a interpretação por parte do servidor.
+
+
+# Ativa o mecanismo de reescrita de URLs
+RewriteEngine On
+
+# Verifica se o nome de arquivo solicitado não corresponde a um arquivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Verifica se o nome de arquivo solicitado não corresponde a um diretório existente
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# A partir deste ponto, a regra de reescrita será aplicada, pois as condições acima foram atendidas
+# O padrão "^(.*)$" captura toda a URL solicitada e a armazena em $1
+# Em seguida, reescreve a URL para ser manipulada por 'index.php', passando a URL original como um parâmetro 'url'
+RewriteRule ^(.*)$ index.php?url=$1 [NC,L]

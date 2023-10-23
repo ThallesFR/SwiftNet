@@ -1,6 +1,6 @@
 <footer id="footer">
-        <a id="aFooter" href="../pages/index.php">
-            <img id="logoFooter" src="../images/logos/logo.svg">
+        <a id="aFooter" href="../pages/home.php">
+            <img id="logoFooter" src="<?php echo  generateUrl('/public/images/logos/logo.svg')?>">
             SwiftNet
         </a>
         <div id="itensFooter">

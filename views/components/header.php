@@ -1,16 +1,16 @@
 <header>
-    <a class="bp" id="logoHeader" href="../pages/index.php"><img src="../images/logos/logo.svg"> SwiftNet</a>
+    <a class="bp" id="logoHeader" href="index.php"><img src="<?php echo  generateUrl('/public/images/logos/logo.svg')?>"> SwiftNet</a>
 
     <nav id="nav">
       
         <ul id="menu" role="menu">
-            <li><a href="../pages/planos.php">Planos</a></li>
-            <li><a href="../pages/usuarios.php">Usuários</a></li>
-            <li><a href="../pages/sobreNos.php">Sobre Nós</a></li>
-            <li><a href="../pages/modeloBD.php">Modelo BD </a></li>
+            <li><a href="planos">Planos</a></li>
+            <li><a href="usuarios">Usuários</a></li>
+            <li><a href="sobreNos">Sobre Nós</a></li>
+            <li><a href="modeloBD">Modelo BD </a></li>
         </ul>
 
-        <a href="../pages/login.php"  id="loginNav">Login</a>
+        <a href="login"  id="loginNav">Login</a>
 
         <div id="perfilDiv">
             
