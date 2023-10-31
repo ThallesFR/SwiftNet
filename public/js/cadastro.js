@@ -218,16 +218,17 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
 
     ///------------------------------------------------ executa a função submit----///
-    const validateSUBMIT = () => { validar_submit(); }
-    id("body_cadastro").addEventListener('click', validateSUBMIT);
-    const validateSubmit = () => { validar_submit(); }
-    id("body_cadastro").addEventListener('input', validateSubmit);
-    const validateSUbmit = () => { validar_submit(); }
-    id("body_cadastro").addEventListener('keyup', validateSUbmit);
-    const validateSUbmiT = () => { validar_submit(); }
-    id("body_cadastro").addEventListener('wheel', validateSUbmiT);
-    const validateSUbmIT = () => { validar_submit(); }
-    id("body_cadastro").addEventListener('mousemove', validateSUbmIT);
+    const validateCadastro = () => {
+        validar_submit();
+    }
+
+    const bodyCadastro = id("body_cadastro");
+    bodyCadastro.addEventListener('click', validateCadastro);
+    bodyCadastro.addEventListener('input', validateCadastro);
+    bodyCadastro.addEventListener('keyup', validateCadastro);
+    bodyCadastro.addEventListener('wheel', validateCadastro);
+    bodyCadastro.addEventListener('mousemove', validateCadastro);
+
 
     ///////////////////// NOME ///////////////////////////////////////////
     const validateNome = (event) => {
@@ -467,7 +468,11 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     id("confsenha").addEventListener('input', validateConfsenha);
 }//----fechamento da function_events-------//
 
-window.onload = function_events;/////////////////////////////////////////////////////////// EXECUÇÃO DAS FUNCTION EVENTS AO ABRIR A JANELA /////////////
+/////////////////////////////////////////////////////////// EXECUÇÃO DAS FUNCTION EVENTS AO ABRIR A JANELA /////////////
+
+window.onload = function_events;
+
+
 
 
 

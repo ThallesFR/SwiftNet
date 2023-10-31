@@ -1,7 +1,5 @@
-<?php
-
-
-class UserModel extends DatabaseConect
+<?php 
+class Includes extends DatabaseConect
 {
     private $pdo;
 
@@ -10,9 +8,9 @@ class UserModel extends DatabaseConect
         $this->pdo = $this->getConnection();
     }
 
-    public function select_tabel()
+    public function select_tabel($tabela)
     {
-        $stm= $this->pdo->query("SELECT * FROM usuario");
+        $stm= $this->pdo->query("SELECT * FROM $tabela");
         if ($stm->rowCount() > 0 ){
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         }else{
@@ -20,6 +18,18 @@ class UserModel extends DatabaseConect
         }
 
     }
+
+    public function select_id($tabela, $id)
+    {
+        $stm= $this->pdo->query("SELECT * FROM $tabela WHERE id = $id");
+        if ($stm->rowCount() > 0 ){
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            return [];
+        }
+
+    }
+
     public function insert($tabela, $dados)
     {
         $colunas = implode(", ", array_keys($dados));
@@ -30,6 +40,7 @@ class UserModel extends DatabaseConect
         }
         return $stm->execute();
     }
+
     public function update($tabela, $dados, $id)
     {
         $set = "";
@@ -52,4 +63,5 @@ class UserModel extends DatabaseConect
         return $stm->execute();
     }
 
-}
+
+    }

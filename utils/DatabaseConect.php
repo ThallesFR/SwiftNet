@@ -1,5 +1,5 @@
 <?php
-class Database
+class DatabaseConect
 {
     public function getConnection()
     {
@@ -20,6 +20,9 @@ class Database
             $pdo = new PDO("mysql:dbname={$database};host={$host}", $user, $password);
             return $pdo;
         } catch (PDOException $err) {
+            require_once __DIR__."/../app/controllers/ErrorController.php";
+            $controller = new ErrorController();
+            $controller->index();
         }
     }
 }

@@ -1,5 +1,17 @@
 /*Orientação  */
 
+/*/////////////////////////////////////// elemento invisivel ///////////////////////////////////////////////////////*/
+
+.invisivel {
+    display: none;
+
+}
+
+.visivel {
+    display: block;
+  
+}
+
 /*/////////////////////////////////////// body ///////////////////////////////////////////////////////*/
 body {
   margin: 0;
@@ -8,7 +20,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-main{
+
+main {
   min-height: 80vh;
 }
 
@@ -301,7 +314,7 @@ header {
   #btns-footer {
     width: 50%;
     right: 0px;
-    
+
   }
 
   #itensFooter h6 {
@@ -481,7 +494,7 @@ h2 {
   border: 2px solid rgba(0, 0, 0, 0.11);
   margin: 2% 0;
   padding: 3%;
-  padding-bottom: 0px;
+  padding-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -507,21 +520,117 @@ h2 {
   text-decoration: none;
 }
 
-#deleteLixeira {
+#card_detalhes_users{
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #2e2e2e4b;
+  display: flex;
+  align-items: first baseline;
+  justify-content: end;
+}
+
+#card_detalhes_users_div{
+  background: white;
+  width: 50%;
+  min-height: 100%;
+  padding: 50px;
+
+}
+
+.card_detalhes_users{
+  text-align: left;
+}
+
+.card_detalhes_users h2 {
+  width: 100%;
+  text-align: center;
+  color:#5E1C6F;
+  text-decoration: underline;
+
+}
+
+#botoes_list_users {
+  width: 20%;
+}
+
+#botoes_list_users svg{
+margin-bottom:10px ;
+
+}
+
+.detalhes_user{
+  color: black;
+  border: none;
+  background: none;
+}
+
+.detalhes_user:hover{
+  cursor: pointer;
+  color: blue;
+}
+
+.fechar_detalhes_user{
+  top: 10px;
+  right: 10px;
+  color: #5E1C6F;
+  border: none;
+  background: none;
+  position: fixed;
+}
+
+.fechar_detalhes_user:hover{
+  color: #c857e4;
+}
+
+.deleteLixeira {
+  color: black;
   border: none;
   background: none;
 }
 
 
-#deleteLixeira:hover {
+.deleteLixeira:hover {
   cursor: pointer;
   color: red;
 }
 
-h2 {
-  width: 100%;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.521);
+.div_delete_user{
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #2e2e2e4b;
+  display: flex;
+  align-items: first baseline;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.div_delete_user_div{
+  padding: 50px;
+  background: white;
+  width: 30%;
+  border-radius: 5px;
+}
+
+#h3_logs{
+  color: #5E1C6F;
+}
+
+#logs_users{
+  width: 90%;
+  height: 500px; 
+  overflow: auto; 
+}
+
+#cards_log {
+  padding-left:5%;
+  margin-bottom: 3%;
+  border-bottom: solid 1px   #b237ce;
 }
 
 @media (max-width: 750px) {
@@ -534,8 +643,20 @@ h2 {
   #containerUsuario h5 {
     font-size: x-small;
   }
-}
 
+  #card_detalhes_users_div{
+    width: 100%;
+  }
+
+  #botoes_list_users svg{
+    width: 10px;
+    height: 10px;
+  }
+
+  #logs_users{
+    height: 300px; 
+  }
+}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Planos                     //////////////////////////////////////////////////////////////////////////
@@ -621,7 +742,7 @@ h2 {
   color: #2E2E2E;
 }
 
-.descricaoPlano button:hover{
+.descricaoPlano button:hover {
   background: none;
 }
 
@@ -969,7 +1090,7 @@ h2 {
   }
 
   #form_2fa h4 {
-    font-size:large;
+    font-size: large;
   }
 
   #form_2fa button {
@@ -1057,8 +1178,22 @@ h2 {
   margin-bottom: 20px;
 }
 
-#body_erro h1 {
+.h1_erro {
   width: 100%;
   color: #902DA9;
   text-align: center;
+  justify-content: center;
 }
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////            Notfound          /////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.notfound {
+  width: 100%;
+  padding-top: 10%;
+  gap: 20px;
+  color: #902DA9;
+  justify-content: center;
+  display: flex;
+}
+

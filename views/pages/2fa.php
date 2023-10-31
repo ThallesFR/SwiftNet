@@ -1,15 +1,11 @@
 <title> <?php echo $title ?></title>
 <main id="main2fa">
 
-    <img id="banner_2fa" src="../../public/images/banners/banner login 1.svg" alt="">
+    <img id="banner_2fa" src="<?php echo  generateUrl('/public/images/banners/banner login 1.svg')?>" alt="">
 
     <form id="form_2fa">
-        <?php $indiceAleatorio = array_rand($_2fa); // Retira um índice aleatório da entidade
-        $_2faAleatorio = $_2fa[$indiceAleatorio]; // usa o índice sorteado para acessar a pergunta do 2fa
-        ?>
         <h4>
-            <?php echo $_2faAleatorio['2fa_quest']; //printa a pergunta do 2fa
-            ?>
+            <?php echo $perguntas; //printa as perguntas do 2fa?>
         </h4><br>
 
         <input id="input_2fa" type="text" placeholder="Resposta"><br>

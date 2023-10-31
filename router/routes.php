@@ -1,9 +1,14 @@
 <?php
 $routes = [
     '/' => 'HomeController@index',
-    '/usuarios' => 'UserController@show',
+    '/home' => 'HomeController@index',
+    '/usuarios' => 'UserController@index',
+    '/usuario-deletar' => 'UserController@delete_user',
     '/planos' => 'PlanosController@index',
     '/autenticacao' => '_2faController@index',
     '/login' => 'LoginController@index',
+    '/cadastro' => 'CadastroController@index',
+    
+    
     
 ];

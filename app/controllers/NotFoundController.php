@@ -1,10 +1,12 @@
 <?php
 
-class NotFoundController
+class NotFoundController extends RenderViews
 {
     public function index()
     {
-        echo"Not Found";
+        $this->loadView('notFound',[
+            'title' => 'NotFound'
+        ]);
     }
 
 }

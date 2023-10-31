@@ -1,6 +1,7 @@
 <title> <?php echo $title ?></title>
+
 <main id="main_cadastro">
-    <img id="banner_cadastro" src="../../public/images/banners/banner login 1.svg" alt="">
+    <img id="banner_cadastro" src="<?php echo  generateUrl('/public/images/banners/banner login 1.svg')?>" alt="">
 
     <form action="" method="post" name=cadastro id="cadastro_form">
 
@@ -129,3 +130,4 @@
         </div>
     </form>
 </main>
+<script src="<?php echo  generateUrl('/public/js/cadastro.js') ?>"></script>

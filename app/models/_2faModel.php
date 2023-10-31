@@ -1,8 +1,7 @@
 <?php
 
-class _2faModel extends Database
+class _2faModel extends DatabaseConect
 {
-
     private $pdo;
 
     public function __construct()
@@ -10,7 +9,7 @@ class _2faModel extends Database
         $this->pdo = $this->getConnection();
     }
 
-    public function fetch()
+    public function select_tabel()
     {
         $stm= $this->pdo->query("SELECT * FROM 2fa");
         if ($stm->rowCount() > 0 ){
@@ -21,3 +20,4 @@ class _2faModel extends Database
 
     }
 }
+

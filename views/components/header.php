@@ -1,5 +1,5 @@
 <header>
-    <a class="bp" id="logoHeader" href="index.php"><img src="<?php echo  generateUrl('/public/images/logos/logo.svg')?>"> SwiftNet</a>
+    <a class="bp" id="logoHeader" href="home"><img src="<?php echo  generateUrl('/public/images/logos/logo.svg')?>"> SwiftNet</a>
 
     <nav id="nav">
       
@@ -29,3 +29,5 @@
         </button>
     </nav>
 </header>
+
+<script src="<?php echo  generateUrl('/public/js/navbar.js') ?>"></script>
