@@ -27,9 +27,17 @@ class UserController extends RenderViews
         ]);
     }
 
-    public function delete_user()
-    {   
+    public function delete_user($id)
+    {   $id_user=$id[0];         
+        $contratos_model = new ContratosModel();
+        $contratos_model->delete($id_user);
+  
+        $logs_model = new LogsModel();
+        $logs_model->delete($id_user);
+        
+        $usuarios_model = new UserModel();
+        $usuarios_model->delete($id_user);
 
-       header('location: usuarios');
+        header('location: http://localhost/SwiftNet/usuarios');
     }
 }

@@ -65,7 +65,7 @@
                             <div class="div_delete_user_div">
                                 <h3>Deseja excluir o usuário <?= $usuario['usuario_nome'] ?> permanentemente?</h3><br>
                                 <div>
-                                    <a href="usuario-deletar" class="btn btn-success">Sim</a>
+                                    <a href='usuarios/sgdohiqergh849dfjhf-delete/<?= $id_user; ?>' class="btn btn-success">Sim</a>
                                     <button onclick="trocaDisplay('alert_user<?= $id_user ?>')" class="btn btn-danger">Não</button>
                                 </div>
                             </div>

@@ -30,5 +30,12 @@ class ContratosModel extends DatabaseConect
         }
 
     }
+
+    public function delete( $id)
+    {
+        $stm = $this->pdo->prepare("DELETE FROM contratos WHERE contratos_user =:id");
+        $stm->bindValue(":id", $id);
+        return $stm->execute();
+    }
     
 }

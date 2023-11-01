@@ -45,9 +45,9 @@ class UserModel extends DatabaseConect
         return $stm->execute();
     }
 
-    public function delete($tabela, $id)
+    public function delete( $id)
     {
-        $stm = $this->pdo->prepare("DELETE FROM $tabela WHERE id=:id");
+        $stm = $this->pdo->prepare("DELETE FROM usuario WHERE id_usuario =:id");
         $stm->bindValue(":id", $id);
         return $stm->execute();
     }

@@ -30,5 +30,12 @@ class LogsModel extends DatabaseConect
         }
 
     }
+
+    public function delete( $id)
+    {
+        $stm = $this->pdo->prepare("DELETE FROM logs WHERE log_user =:id");
+        $stm->bindValue(":id", $id);
+        return $stm->execute();
+    }
     
 }
