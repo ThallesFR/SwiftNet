@@ -746,6 +746,44 @@ margin-bottom:10px ;
   background: none;
 }
 
+
+
+#card_detalhes_planos{
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #2e2e2e4b;
+  display: flex;
+  align-items: first baseline;
+  justify-content: end;
+}
+
+#card_detalhes_planos_div{
+  background: white;
+  width: 40%;
+  min-height: 100%;
+  padding: 50px;
+}
+
+.fechar_detalhes_planos{
+  top: 10px;
+  right: 10px;
+  color: #5E1C6F;
+  border: none;
+  background: none;
+  position: fixed;
+}
+
+.fechar_detalhes_planos:hover{
+  color: #c857e4;
+}
+
+#card_detalhes_planos_div h2{
+  color: #902DA9;
+}
+
 @media(max-width: 1024px) {
   .containerTiposPlanos {
     display: block;
@@ -754,6 +792,12 @@ margin-bottom:10px ;
   .containerPlanos {
     width: 70vw;
   }
+
+  #card_detalhes_planos_div{
+    width: 100%;
+  
+  }
+  
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -20,7 +20,7 @@ class UserModel extends DatabaseConect
         }
 
     }
-    public function insert($tabela, $dados)
+   /* public function insert($tabela, $dados)
     {
         $colunas = implode(", ", array_keys($dados));
         $valores = ":" . implode(", :", array_keys($dados));
@@ -43,7 +43,7 @@ class UserModel extends DatabaseConect
         }
         $stm->bindValue(":id", $id);
         return $stm->execute();
-    }
+    }*/
 
     public function delete( $id)
     {

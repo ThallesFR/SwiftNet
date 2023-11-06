@@ -1,15 +1,13 @@
 <?php
 
-class LoginController extends RenderViews
+class SobreNosController extends RenderViews
 {
     public function index()
     {
-        $this->loadView('login',[
-            'title' => 'login'
+        $this->loadView('sobreNos',[
+            'title' => 'Sobre nós'
         ]);
     }
 
-    public function show()
-    { 
-    }
+   
 }

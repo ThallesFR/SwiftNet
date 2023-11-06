@@ -10,33 +10,52 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <div class="containerPlanos">
+            <?php if($plano["planos_tipo"] == "banda"):?>
 
-                <h3><?= $plano['nome'] ?></h3>
+                <?php $velocidade_plano = null;
+                    foreach ($velocidade as $elemento_velocidade) {
+                        if ($elemento_velocidade['id_velocidade'] == $plano['planos_velocidade']) {
+                            $velocidade_plano= $elemento_velocidade['velocidade_quantidade'];
+                            break;
+                        }
+                    }?>
 
-                <h2><?= $plano['velocidade'] ?></h2>
 
-                <p class="descricaoPlano"> <?= $plano['descricao'] ?></p>
 
-                <h2><?= $plano['valor'] ?></h2><br>
+                <div class="containerPlanos">
 
-                <div class="contratarPlano">
-                    <button>Contratar</button>
+                    <h3><?= $plano['planos_nome'] ?></h3>
+
+                    <h2><?= $velocidade_plano ?></h2>
+
+                    <p class="descricaoPlano"> <?= $plano['planos_descricao'] ?></p>
+
+                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+
+                    <div class="contratarPlano">
+                        <button>Contratar</button>
+                    </div><br>
+
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
+                    
                 </div><br>
 
-                <p class="descricaoPlano"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">+ detalhes da oferta</button></p>
+                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                    <div id="card_detalhes_planos">
+                        <div id="card_detalhes_planos_div">
+                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
+                            <h4>X</h4>
+                        </button>
 
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Título</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h2>Detalhes do plano:</h2><br>
+                            <p>
+                                <?= $plano['planos_detalhes']?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="offcanvas-body">
-                        <p>Detalhes do plano.</p>
-                    </div>
+                    
                 </div>
-
-            </div><br>
+            <?php endif?>
         <?php endforeach; ?>
     </div>
 
@@ -46,34 +65,52 @@
         </svg>
     </h1><br>
     <div class="containerTiposPlanos">
-        <?php foreach ($planosTelefoniaFixa as $plano) : ?>
-            <div class="containerPlanos">
+        <?php foreach ($planos as $plano) : ?>
+            <?php if($plano["planos_tipo"] == "fixo"):?>
 
-                <h3><?= $plano['nome'] ?></h3>
+                
+                <?php $fminutos_plano = null;
+                    foreach ($F_minutos as $elemento_fminutos) {
+                        if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
+                            $fminutos_plano= $elemento_fminutos['franquia_minutos_quantidade'];
+                            break;
+                        }
+                    }?>
 
-                <h2><?= $plano['minutos_incluidos'] ?></h2>
+                <div class="containerPlanos">
 
-                <p class="descricaoPlano"><?= $plano['descricao'] ?></p>
+                    <h3><?= $plano['planos_nome'] ?></h3>
 
-                <h2><?= $plano['preco_mensal'] ?></h2><br>
+                    <h2><?= $fminutos_plano ?></h2>
 
-                <div class="contratarPlano">
-                    <button>Contratar</button>
+                    <p class="descricaoPlano"><?= $plano['planos_descricao'] ?></p>
+
+                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+
+                    <div class="contratarPlano">
+                        <button>Contratar</button>
+                    </div><br>
+
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
+                    
                 </div><br>
 
-                <p class="descricaoPlano"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">+ detalhes da oferta</button></p>
+                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                    <div id="card_detalhes_planos">
+                        <div id="card_detalhes_planos_div">
+                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
+                            <h4>X</h4>
+                        </button>
 
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Título</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h2>Detalhes do plano:</h2><br>
+                            <p>
+                                <?= $plano['planos_detalhes']?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="offcanvas-body">
-                        <p>Detalhes do plano.</p>
-                    </div>
+                    
                 </div>
-
-            </div><br>
+            <?php endif?>
         <?php endforeach; ?>
     </div>
 
@@ -83,35 +120,65 @@
         </svg>
     </h1><br>
     <div class="containerTiposPlanos">
-        <?php foreach ($planosInternetCelular as $plano) : ?>
-            <div class="containerPlanos">
+        <?php foreach ($planos as $plano) : ?>
+            <?php if($plano["planos_tipo"] == "móvel"):?>
+                 
+                <?php 
+                    $fminutos_plano = null;
+                    foreach ($F_minutos as $elemento_fminutos) {
+                        if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
+                            $fminutos_plano= $elemento_fminutos['franquia_minutos_quantidade'];
+                            break;
+                        }
+                    }
 
-                <h3><?= $plano['nome'] ?></h3>
+                    $fdados_plano = null;
+                    foreach ($F_Dados as $elemento_fdados) {
+                        if ($elemento_fdados['id_franquia_dados'] == $plano['planos_fdados']) {
+                            $fdados_plano= $elemento_fdados['franquia_dados_quantidade'];
+                            break;
+                        }
+                    }
+                    
+                    ?>
 
-                <h2><?= $plano['dados'] ?></h2>
+                <div class="containerPlanos">
 
-                <h3><?= $plano['minutos_incluidos'] ?></h3>
+                    <h3><?= $plano['planos_nome'] ?></h3>
 
-                <p class="descricaoPlano"><?= $plano['descricao'] ?></p>
+                    <h2><?=   $fdados_plano ?></h2>
 
-                <h2><?= $plano['preco_mensal'] ?></h2><br>
+                    <h3><?= $fminutos_plano ?></h3>
 
-                <div class="contratarPlano">
-                    <button>Contratar</button>
+                    <p class="descricaoPlano"><?= $plano['planos_descricao'] ?></p>
+
+                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+
+                    <div class="contratarPlano">
+                        <button>Contratar</button>
+                    </div><br>
+
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
+                    
                 </div><br>
 
-                <p class="descricaoPlano"><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">+ detalhes da oferta</button></p>
+                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                    <div id="card_detalhes_planos">
+                        <div id="card_detalhes_planos_div">
+                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
+                            <h4>X</h4>
+                        </button>
 
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Título</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h2>Detalhes do plano:</h2><br>
+                            <p>
+                                <?= $plano['planos_detalhes']?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="offcanvas-body">
-                        <p>Detalhes do plano.</p>
-                    </div>
+                    
                 </div>
-            </div><br>
+            <?php endif?>
         <?php endforeach; ?>
     </div>
 </main>
+<script src="<?php echo  generateUrl('/public/js/invisivel.js') ?>"></script>

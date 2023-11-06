@@ -1,4 +1,4 @@
 <main id="modeloDbMain">
 
-    <img id="img-DB" src="../../public/images/bd/SwiftNet_DER_page-0001.jpg" alt="">
+    <img id="img-DB" src="<?php echo  generateUrl('/public/images/bd/DER.jpg')?>" alt="">
 </main>

@@ -6,8 +6,8 @@
         <ul id="menu" role="menu">
             <li><a href="planos">Planos</a></li>
             <li><a href="usuarios">Usuários</a></li>
-            <li><a href="sobreNos">Sobre Nós</a></li>
-            <li><a href="modeloBD">Modelo BD </a></li>
+            <li><a href="sobre-nos">Sobre Nós</a></li>
+            <li><a href="modelo-do-banco">Modelo BD </a></li>
         </ul>
 
         <a href="login"  id="loginNav">Login</a>

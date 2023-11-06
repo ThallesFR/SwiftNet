@@ -8,7 +8,6 @@ $routes = [
     '/autenticacao' => '_2faController@index',
     '/login' => 'LoginController@index',
     '/cadastro' => 'CadastroController@index',
-    
-    
-    
+    '/modelo-do-banco' => 'Modelo_bdController@index',
+    '/sobre-nos' => 'SobreNosController@index'
 ];
