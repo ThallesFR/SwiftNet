@@ -105,9 +105,11 @@
                                             $exibiu_algo = true;
 
                                             echo '<div id="cards_log">';
-                                            echo '<p>Login: ' . $elemento_log['log_login'] . '</p>';
-                                            echo '<p>Logout: ' . $elemento_log['log_logout'] . '</p>';
-                                            echo '<p>Pergunta de autenticação realizada: ' . $pergunta['2fa_quest'] . '</p>';
+                                                echo '<div id="cards_log_login_logout">';
+                                                    echo '<h6>Login: ' . $elemento_log['log_login'] . '</h6>';
+                                                    echo '<h6>Logout: ' . $elemento_log['log_logout'] . '</h6>';
+                                                echo '</div>';
+                                                echo '<p>Autenticação: ' . $pergunta['2fa_quest'] . '</p>';
                                             echo '</div>';
                                         }
                                     }

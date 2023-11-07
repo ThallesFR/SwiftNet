@@ -23,6 +23,7 @@ class DatabaseConect
             require_once __DIR__."/../app/controllers/ErrorController.php";
             $controller = new ErrorController();
             $controller->index();
+            die();
         }
     }
 }

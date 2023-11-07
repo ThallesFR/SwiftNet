@@ -1,3 +1,4 @@
+<title><?php echo $title ?></title>
 <main id="sobreMain">
     <h1>Sobre nós</h1>
     <div id="container_principal_sobre">

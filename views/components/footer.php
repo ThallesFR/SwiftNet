@@ -1,5 +1,5 @@
 <footer id="footer">
-        <a id="aFooter" href="../pages/home.php">
+        <a id="aFooter" href="http://localhost/SwiftNet/">
             <img id="logoFooter" src="<?php echo  generateUrl('/public/images/logos/logo.svg')?>">
             SwiftNet
         </a>

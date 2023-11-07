@@ -4,6 +4,9 @@ class UserController extends RenderViews
 {
     public function index()
     {
+        $Auth = new Auth();
+        $Auth->protect('master');
+
         $usuarios_model = new UserModel();
         $usuarios = $usuarios_model->select_tabel();
 

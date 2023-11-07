@@ -1,3 +1,4 @@
+<title><?php echo $title ?></title>
 <main id="mainPerfil">
     <div id="apresentacao">
 

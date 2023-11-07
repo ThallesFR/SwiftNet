@@ -75,7 +75,6 @@ header {
   display: flex;
   list-style: none;
   padding-top: 15px;
-  margin-right: 100px;
   align-items: center;
 }
 
@@ -138,6 +137,9 @@ header {
   color: white;
 }
 
+#a_logout{
+ margin-left: auto;
+}
 /*-------------------------navbar responsivo ------------------------------ */
 @media (max-width: 1020px) {
   header {
@@ -631,6 +633,19 @@ margin-bottom:10px ;
   padding-left:5%;
   margin-bottom: 3%;
   border-bottom: solid 1px   #b237ce;
+
+}
+
+#cards_log_login_logout{
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 850px) {
+  #cards_log_login_logout{
+    display: block;
+  }
+
 }
 
 @media (max-width: 750px) {

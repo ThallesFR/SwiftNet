@@ -1,11 +1,11 @@
 <?php
 
-class LoginController extends RenderViews
+class PerfilController extends RenderViews
 {
     public function index()
     {
-        $this->loadView('login',[
-            'title' => 'login'
+        $this->loadView('perfil',[
+            'title' => 'Perfil'
         ]);
     }
 

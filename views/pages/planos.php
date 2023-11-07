@@ -1,3 +1,4 @@
+<title><?php echo $title ?></title>
 <main id="planosMain">
 
     <h1 id="fibraPlanos">Fibra
