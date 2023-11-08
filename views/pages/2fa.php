@@ -3,12 +3,14 @@
 
     <img id="banner_2fa" src="<?php echo  generateUrl('/public/images/banners/banner login 1.svg')?>" alt="">
 
-    <form id="form_2fa">
+    <form method="post" action="5d4as6s-session/<?=$id?>" id="form_2fa">
         <h4>
             <?php echo $perguntas; //printa as perguntas do 2fa?>
         </h4><br>
 
-        <input id="input_2fa" type="text" placeholder="Resposta"><br>
+        <input name="pergunta_2fa" value="<?= $perguntas?>" type="hidden">
+
+        <input name="resposta_2fa" id="input_2fa" type="text" placeholder="Resposta"><br>
 
         <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
