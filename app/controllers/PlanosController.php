@@ -3,7 +3,12 @@
 class PlanosController extends RenderViews
 {
     public function index()
-    {
+    {       
+        if(isset($_SESSION['user'])&& $_SESSION['tipo'] == "master"){
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
+
         $planos_model = new PlanosModel();
         $planos = $planos_model->select_tabel();
 

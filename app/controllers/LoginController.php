@@ -4,6 +4,11 @@ class LoginController extends RenderViews
 {
     public function index()
     {
+        if(isset($_SESSION['user'])){
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
+
         $this->loadView('login', [
             'title' => 'login'
         ]);
@@ -11,6 +16,11 @@ class LoginController extends RenderViews
 
     public function login_user()
     {
+        if(isset($_SESSION['user'])){
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
+
         $login = $_POST['usuario_login'];
         $senha = $_POST['senha'];
 

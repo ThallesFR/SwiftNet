@@ -1,5 +1,5 @@
 <?php 
-class Includes extends DatabaseConect
+class Includs extends DatabaseConect
 {
     private $pdo;
 

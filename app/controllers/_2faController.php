@@ -4,10 +4,15 @@ class _2faController extends RenderViews
 {
     public function index($id)
     {
+        if (isset($_SESSION['user'])) {
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
+
         $_2faModel = new _2faModel();
         $_2fa = $_2faModel->select_tabel();
 
-        $id_user=$id[0];
+        $id_user = $id[0];
 
 
         $indiceAleatorio = array_rand($_2fa); // Retira um índice aleatório da entidade
@@ -16,13 +21,18 @@ class _2faController extends RenderViews
         $this->loadView('2fa', [
             'title' => 'Autenticação',
             'perguntas' => $_2faAleatorio['2fa_quest'],
-            'id'=> $id_user
+            'id' => $id_user
         ]);
     }
 
-   public function autenticacao_2fa($id)
-   {    
-        $id_user=$id[0];
+    public function autenticacao_2fa($id)
+    {
+        if (isset($_SESSION['user'])) {
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
+
+        $id_user = $id[0];
 
         $pergunta = $_POST['pergunta_2fa'];
         $resposta = $_POST['resposta_2fa'];
@@ -30,7 +40,6 @@ class _2faController extends RenderViews
         //echo $id_user,$pergunta,$resposta;
 
         $Auth = new Auth();
-        $Auth->autenticacao($pergunta,$resposta,$id_user);
-
-   }
+        $Auth->autenticacao($pergunta, $resposta, $id_user);
+    }
 }

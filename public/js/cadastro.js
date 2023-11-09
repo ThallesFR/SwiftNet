@@ -218,17 +218,16 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
 
     ///------------------------------------------------ executa a função submit----///
-    const validateCadastro = () => {
-        validar_submit();
-    }
-
-    const bodyCadastro = id("body_cadastro");
-    bodyCadastro.addEventListener('click', validateCadastro);
-    bodyCadastro.addEventListener('input', validateCadastro);
-    bodyCadastro.addEventListener('keyup', validateCadastro);
-    bodyCadastro.addEventListener('wheel', validateCadastro);
-    bodyCadastro.addEventListener('mousemove', validateCadastro);
-
+    const validateSUBMIT = () => { validar_submit(); }
+    id("body_index").addEventListener('click', validateSUBMIT);
+    const validateSubmit = () => { validar_submit(); }
+    id("body_index").addEventListener('input', validateSubmit);
+    const validateSUbmit = () => { validar_submit(); }
+    id("body_index").addEventListener('keyup', validateSUbmit);
+    const validateSUbmiT = () => { validar_submit(); }
+    id("body_index").addEventListener('wheel', validateSUbmiT);
+    const validateSUbmIT = () => { validar_submit(); }
+    id("body_index").addEventListener('mousemove', validateSUbmIT);
 
     ///////////////////// NOME ///////////////////////////////////////////
     const validateNome = (event) => {
@@ -289,9 +288,9 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     ///////////////////// SEXO //////////////////////////////////////////
     function sexo() {
 
-        if (document.getElementsByName("sexo")[0].checked == false
-            && document.getElementsByName("sexo")[1].checked == false
-            && document.getElementsByName("sexo")[2].checked == false) {
+        if (document.getElementsByName("usuario_sexo")[0].checked == false
+            && document.getElementsByName("usuario_sexo")[1].checked == false
+            && document.getElementsByName("usuario_sexo")[2].checked == false) {
             sexo_valido = false;
         }
         else { sexo_valido = true }
@@ -468,11 +467,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     id("confsenha").addEventListener('input', validateConfsenha);
 }//----fechamento da function_events-------//
 
-/////////////////////////////////////////////////////////// EXECUÇÃO DAS FUNCTION EVENTS AO ABRIR A JANELA /////////////
-
-window.onload = function_events;
-
-
+window.onload = function_events;/////////////////////////////////////////////////////////// EXECUÇÃO DAS FUNCTION EVENTS AO ABRIR A JANELA /////////////
 
 
 

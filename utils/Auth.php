@@ -22,6 +22,23 @@ class Auth extends DatabaseConect
             if ($usuario['usuario_tipo'] == "comum") {
                 // Redireciona para a página 'autenticacao' passando os parâmetros via URL
                 header("Location: autenticacao/asdklksdaas648/" . $usuario['id_usuario']);
+            }
+
+            if ($usuario['usuario_tipo'] == "master") {
+                if ($usuario) {
+                    // Verifica se a sessão já foi iniciada
+                    if (!isset($_SESSION)) {
+                        // Inicia a sessão
+                        session_start();
+                    }
+
+                    // Armazena o ID do usuário e o tipo de usuário na sessão
+                    $_SESSION['user'] = $usuario['id_usuario'];
+                    $_SESSION['tipo'] = $usuario['usuario_tipo'];
+
+                    // Redireciona o usuário para a página inicial
+                    header('Location: http://localhost/SwiftNet/');
+                }
             } else {
                 echo "Falha ao logar! login ou senha incorretos";
             }
@@ -49,7 +66,7 @@ class Auth extends DatabaseConect
             if ($Post_pergunta == 'Qual o CEP do seu endereço?') {
                 $resposta = "usuario_cep";
             }
-            
+
             // Define a consulta SQL para selecionar o usuário com os parâmetros  fornecidos
             $sql_code = "SELECT * FROM usuario WHERE id_usuario = :usuario AND $resposta = :resposta";
 
@@ -82,7 +99,7 @@ class Auth extends DatabaseConect
                 header('Location: http://localhost/SwiftNet/');
             } else {
                 // Exibe uma mensagem de erro se o login ou a senha estiverem incorretos
-                echo "Falha ao logar! Reposta incorreta";
+                echo "Falha ao logar! Reposta incorreta"; // criar uma div e puchar o js pra mostrar esta div error aqui 
             }
         } else {
             // Exibe uma mensagem de erro se os campos de login e senha não foram preenchidos corretamente
@@ -109,7 +126,6 @@ class Auth extends DatabaseConect
         if (!isset($_SESSION)) {
             session_start();
         }
-
         if (!isset($_SESSION['user'])) {
             header('Location: http://localhost/SwiftNet/');
             die();

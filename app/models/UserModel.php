@@ -20,16 +20,18 @@ class UserModel extends DatabaseConect
         }
 
     }
-   /* public function insert($tabela, $dados)
+
+    public function insert( $dados)
     {
         $colunas = implode(", ", array_keys($dados));
         $valores = ":" . implode(", :", array_keys($dados));
-        $stm = $this->pdo->prepare("INSERT INTO $tabela ($colunas) VALUES ($valores)");
+        $stm = $this->pdo->prepare("INSERT INTO usuario ($colunas) VALUES ($valores)");
         foreach ($dados as $key => $value) {
             $stm->bindValue(":$key", $value);
         }
         return $stm->execute();
     }
+    /*
     public function update($tabela, $dados, $id)
     {
         $set = "";

@@ -3,7 +3,7 @@
 <main id="main_cadastro">
     <img id="banner_cadastro" src="<?php echo  generateUrl('/public/images/banners/banner login 1.svg')?>" alt="">
 
-    <form action="" method="post" name=cadastro id="cadastro_form">
+    <form action="cadastro-65465adsdwee-user-4856er456" method="post" name=cadastro id="cadastro_form">
 
         <h3>
             <div id="div_info_cadastro">
@@ -32,55 +32,56 @@
         <div class="container" name="campos_cadastro" id="campos_cadastro">
 
             <div id="div1_cadastro">
-                <input class="campos_obrigatorios" type="text" id="nome" name="nome" placeholder="Nome completo"> <br>
 
-                <input class="campos_obrigatorios" type="text" id="nomemae" name="nomemae" placeholder="Nome da mãe completo"><br>
+                <input class="campos_obrigatorios" type="text" id="nome" name="usuario_nome" placeholder="Nome completo"> <br>
+
+                <input class="campos_obrigatorios" type="text" id="nomemae" name="usuario_mae" placeholder="Nome da mãe completo"><br>
 
                 <div id="div_data">
 
                     <label>Data de Nascimento:</label><br>
 
-                    <input class="campos_obrigatorios" type="date" id="datanasci" name="datanasci"><br>
+                    <input class="campos_obrigatorios" type="date" id="datanasci" name="usuario_nascimento"><br>
 
                 </div>
 
                 <div id="sexo_div">
                     <label id="titulo_sexo" type="text">Sexo: </label><br>
-                    <div id="campus_sexo"><input class="radio" type="radio" name="sexo" value="Feminino">
+                    <div id="campos_sexo"><input class="radio" type="radio" name="usuario_sexo" value="Feminino">
                         <label for="feminino">Feminino</label>
 
-                        <input class="radio" type="radio" name="sexo" value="Masculino">
+                        <input class="radio" type="radio" name="usuario_sexo" value="Masculino">
                         <label for="masculino">Masculino</label>
 
-                        <input class="radio" type="radio" name="sexo" value="Outros">
+                        <input class="radio" type="radio" name="usuario_sexo" value="Outros">
                         <label for="outros">Outros</label><br><br>
                     </div>
 
                 </div>
 
-                <input class="campos_obrigatorios" type="text" id="cpf" name="cpf" autocomplete="oof" placeholder="CPF"><br>
+                <input class="campos_obrigatorios" type="text" id="cpf" name="usuario_cpf" autocomplete="oof" placeholder="CPF"><br>
 
-                <input class="campos_obrigatorios" type="text" id="email" name="email" placeholder="Email"><br>
+                <input class="campos_obrigatorios" type="text" id="email" name="usuario_email" placeholder="Email"><br>
 
-                <input class="campos_obrigatorios" type="text" name="login" id="login" placeholder="Login"><br>
+                <input class="campos_obrigatorios" type="text" name="usuario_login" id="login" placeholder="Login"><br>
 
-                <input class="campos_obrigatorios" type="password" name="senha" id="senha" placeholder="Senha"><br>
+                <input class="campos_obrigatorios" type="password" name="usuario_senha" id="senha" placeholder="Senha"><br>
 
-                <input class="campos_obrigatorios" type="password" name="confsenha" id="confsenha" placeholder="Conirme sua senha"><br>
+                <input class="campos_obrigatorios" type="password" id="confsenha" placeholder="Conirme sua senha"><br>
 
             </div>
 
             <div id="div2_cadastro">
 
-                <input class="campos_obrigatorios" type="tel" name="tel_fixo" id="tel_fixo" placeholder="Tel. Fixo "><br>
+                <input class="campos_obrigatorios" type="tel" name="usuario_telefone" id="tel_fixo" placeholder="Tel. Fixo "><br>
 
-                <input class="campos_obrigatorios" type="tel" name="tel_cel" id="tel_cel" placeholder="Tel. Celular"><br>
+                <input class="campos_obrigatorios" type="tel" name="usuario_cel" id="tel_cel" placeholder="Tel. Celular"><br>
 
-                <input class="campos_obrigatorios" type="text" id="CEP" name="CEP" size="10" placeholder="CEP" onblur="pesquisacep(this.value);"><br>
+                <input class="campos_obrigatorios" type="text" id="CEP" name="usuario_cep" size="10" placeholder="CEP" oninput="pesquisacep(this.value);"><br>
 
                 <div id="div_uf">
                     <label for="UF">UF:</label><br>
-                    <select class="campos_obrigatorios" id="UF" name="UF">
+                    <select class="campos_obrigatorios" id="UF" name="usuario_uf">
                         <option value="">Selecione</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -112,22 +113,22 @@
                     </select><br><br><br>
                 </div>
 
-                <input class="campos_obrigatorios" type="text" id="cidade" name="cidade" placeholder="Cidade"><br>
+                <input class="campos_obrigatorios" type="text" id="cidade" name="usuario_cidade" placeholder="Cidade"><br>
 
-                <input class="campos_obrigatorios" type="text" id="bairro" name="bairro" placeholder="Bairro"><br>
+                <input class="campos_obrigatorios" type="text" id="bairro" name="usuario_bairro" placeholder="Bairro"><br>
 
-                <input class="campos_obrigatorios" name="rua" id="rua" placeholder="Rua"></input><br>
+                <input class="campos_obrigatorios" name="usuario_rua" id="rua" placeholder="Rua"></input><br>
 
-                <input class="campos_obrigatorios" type="text" id="numero_entrada" name="numero_entrada" placeholder="Número"><br>
+                <input class="campos_obrigatorios" type="text" id="numero_entrada" name="usuario_numero" placeholder="Número"><br>
 
-                <input type="text" id="complemento" name="complemento" placeholder="Complemento"><br>
+                <input type="text" id="complemento" name="usuario_complemento" placeholder="Complemento"><br>
             </div><br>
         </div>
 
         <div id="div_botoes_cadastro">
-            <button class="btn btn-success" type="submit" name='botaocadastrar' id='botaocadastrar'>Cadastrar</button>
-            <button class="btn btn-light" name='botaolimpar' id='botaolimpar' type="reset">Limpar</button>
+            <button class="btn btn-success" type="submit"  id='botaocadastrar' disabled>Cadastrar</button>
+            <button class="btn btn-light"  id='botaolimpar' type="reset">Limpar</button>
         </div>
     </form>
 </main>
-<script src="<?php echo  generateUrl('/public/js/cadastro.js') ?>"></script>
+<script src="<?php echo  generateUrl('/public/js/cadastro.js'); ?>"></script>

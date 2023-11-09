@@ -49,28 +49,30 @@
             </div>
         </div><br>
 
-        <h1>Planos adiquiridos</h1>
-        <div id="planosObtidos">
-            <?php if ($numeroPedidos != "0") : ?>
-                <?php foreach ($findPedidos as $pedido) : ?>
-                    <div id="containerPlanoPerfil">
-                        <div>
-                            <h5>Nome do Plano</h5><br>
-                            <p><?= $pedido->id ?></p>
+        <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'comum') : ?>
+            <h1>Planos adiquiridos</h1>
+            <div id="planosObtidos">
+                <?php if ($numeroPedidos != "0") : ?>
+                    <?php foreach ($findPedidos as $pedido) : ?>
+                        <div id="containerPlanoPerfil">
+                            <div>
+                                <h5>Nome do Plano</h5><br>
+                                <p><?= $pedido->id ?></p>
+                            </div>
+                            <div>
+                                <h5>Data</h5><br>
+                                <p><?= $pedido->created_at ?></p>
+                            </div>
+                            <div>
+                                <h5>Valor/mês</h5><br>
+                                <p><?= $pedido->valor ?></p>
+                            </div>
                         </div>
-                        <div>
-                            <h5>Data</h5><br>
-                            <p><?= $pedido->created_at ?></p>
-                        </div>
-                        <div>
-                            <h5>Valor/mês</h5><br>
-                            <p><?= $pedido->valor ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else : ?>
-                <h2 id="textvazio" class="carrinhoVazio">Você não tem pedidos registrados.</h2><br>
-            <?php endif; ?>
-        </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <h2 id="textvazio" class="carrinhoVazio">Você não tem pedidos registrados.</h2><br>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </section>
 </main>

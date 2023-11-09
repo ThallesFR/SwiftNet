@@ -1,18 +1,8 @@
 /*Orientação  */
 
-/*/////////////////////////////////////// elemento invisivel ///////////////////////////////////////////////////////*/
+/*/////////////////////////////////////// elementos gerais ///////////////////////////////////////////////////////*/
 
-.invisivel {
-    display: none;
 
-}
-
-.visivel {
-    display: block;
-  
-}
-
-/*/////////////////////////////////////// body ///////////////////////////////////////////////////////*/
 body {
   margin: 0;
   padding: 0;
@@ -24,6 +14,27 @@ body {
 main {
   min-height: 80vh;
 }
+/*/-------------------campos error ---------------------/*/
+.error_input {
+  color: red !important;
+  outline: 2px solid rgb(212, 14, 14) !important;
+}
+
+.error_input:focus {
+  border-color: 2px solid rgb(212, 14, 14) !important;
+}
+
+/*-------------------------- campo  invisivel ------------------*/
+.invisivel {
+  display: none;
+
+}
+
+.visivel {
+  display: block;
+
+}
+
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Componentes                       ////////////////////////////////////////////////////////////////////////////
@@ -995,16 +1006,7 @@ margin-bottom:10px ;
   color: #902DA9;
 }
 
-.error_input {
-  color: red !important;
-  outline: 2px solid rgb(212, 14, 14) !important;
-}
-
-.error_input:focus {
-  border-color: 2px solid rgb(212, 14, 14) !important;
-}
-
-#campus_sexo {
+#campos_sexo {
   display: flex;
   justify-content: space-between;
   align-items: center;

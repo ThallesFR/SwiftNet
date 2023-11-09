@@ -1,6 +1,5 @@
 <?php
 
-
 class Modelo_bdController extends RenderViews
 {
     public function index()
