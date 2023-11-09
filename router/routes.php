@@ -14,6 +14,8 @@ $routes = [
     '/cadastro-65465adsdwee-user-4856er456' => 'CadastroController@cadastro',
     '/modelo-do-banco' => 'Modelo_bdController@index',
     '/sobre-nos' => 'SobreNosController@index',
-    '/perfil' => 'PerfilController@index'
+    '/perfil' => 'PerfilController@index',
+    '/perfil-editar-senha48reg84erg' => 'PerfilController@editar_senha',
+    '/perfil-deletar-planowe456erg546erg' => 'PerfilController@delete_contrato'
 
 ];

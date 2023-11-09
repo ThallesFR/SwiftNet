@@ -483,6 +483,42 @@ h2 {
   color: rgba(0, 0, 0, 0.521);
 }
 
+#div_edit_senha{
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #2e2e2e4b;
+  display: flex;
+  align-items: first baseline;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+#div_edit_senha_div{
+  color:#5E1C6F;
+  padding: 20px;
+  background: white;
+  width: 30%;
+  border-radius: 5px;
+ text-align: center;
+}
+
+#div_edit_senha_div_fechar{
+  font-size: x-large;
+  margin-left: 90%;
+  width: 10%;
+  color: #33083d;
+  background: none;
+  border: none;
+}
+
+#div_edit_senha_div_fechar:hover{
+  color: #b237ce;
+}
+
+
 @media(max-width: 750px) {
   #containerPlanoPerfil {
     flex-direction: column;

@@ -12,16 +12,26 @@ class UserModel extends DatabaseConect
 
     public function select_tabel()
     {
-        $stm= $this->pdo->query("SELECT * FROM usuario");
-        if ($stm->rowCount() > 0 ){
+        $stm = $this->pdo->query("SELECT * FROM usuario");
+        if ($stm->rowCount() > 0) {
             return $stm->fetchAll(PDO::FETCH_ASSOC);
-        }else{
+        } else {
             return [];
         }
-
     }
 
-    public function insert( $dados)
+
+    public function select_id($id)
+    {
+        $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE id_usuario = :id");
+        $stm->bindValue(":id", $id);
+        $stm->execute();
+
+        // Use fetch para obter uma única linha (um usuário) ou fetchAll para obter todas as linhas
+        return $stm->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function insert($dados)
     {
         $colunas = implode(", ", array_keys($dados));
         $valores = ":" . implode(", :", array_keys($dados));
@@ -31,27 +41,22 @@ class UserModel extends DatabaseConect
         }
         return $stm->execute();
     }
-    /*
-    public function update($tabela, $dados, $id)
-    {
-        $set = "";
-        foreach ($dados as $key => $value) {
-            $set .= "$key=:$key, ";
-        }
-        $set = rtrim($set, ", ");
-        $stm = $this->pdo->prepare("UPDATE $tabela SET $set WHERE id=:id");
-        foreach ($dados as $key => $value) {
-            $stm->bindValue(":$key", $value);
-        }
-        $stm->bindValue(":id", $id);
-        return $stm->execute();
-    }*/
+  
+    public function update_senha($id,  $novaSenha)
+{
+    $stm = $this->pdo->prepare("UPDATE usuario SET usuario_senha = :novaSenha WHERE id_usuario = :id");
+    $stm->bindValue(":novaSenha", $novaSenha);
+    $stm->bindValue(":id", $id);
 
-    public function delete( $id)
+    return $stm->execute();
+}
+
+
+
+    public function delete($id)
     {
         $stm = $this->pdo->prepare("DELETE FROM usuario WHERE id_usuario =:id");
         $stm->bindValue(":id", $id);
         return $stm->execute();
     }
-
 }

@@ -132,4 +132,3 @@
         <?php endif; ?>
 </div>
 </main>
-<script src="<?php echo  generateUrl('/public/js/invisivel.js') ?>"></script>

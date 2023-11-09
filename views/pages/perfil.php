@@ -17,60 +17,80 @@
         <div id="dadosPessoais">
             <div id="infoPessoais">
                 <div id="infoPessoais1">
-                    <label for="nome">Nome: <?= $userData['nome'] ?></label><br>
-                    <label for="nome_mae">Nome da Mãe: <?= $userData['nome_mae'] ?></label><br>
-                    <label for="datanasci">Data de nascimento: <?= $userData['nascimento'] ?></label><br>
-                    <label for="sexo">Sexo: <?= $userData['sexo'] ?></label><br>
-                    <label for="cpf">CPF: <?= $userData['CPF'] ?></label><br>
-                    <label for="tel_fixo">Telefone fixo: <?= $userData['fixo'] ?></label><br>
-                    <label for="tel_cel">Telefone celular: <?= $userData['celular'] ?></label><br>
+                    <label for="nome">Nome: <?= $userData['usuario_nome'] ?></label><br>
+                    <label for="nome_mae">Nome da Mãe: <?= $userData['usuario_mae'] ?></label><br>
+                    <label for="datanasci">Data de nascimento: <?= $userData['usuario_nascimento'] ?></label><br>
+                    <label for="sexo">Sexo: <?= $userData['usuario_sexo'] ?></label><br>
+                    <label for="cpf">CPF: <?= $userData['usuario_cpf'] ?></label><br>
+                    <label for="tel_fixo">Telefone fixo: <?= $userData['usuario_telefone'] ?></label><br>
+                    <label for="tel_cel">Telefone celular: <?= $userData['usuario_cel'] ?></label><br>
                 </div>
                 <div id="infoPessoais2">
-                    <label for="email">E-mail: <?= $userData['email'] ?></label><br><br>
-                    <button id="alterar_senha" class="btn btn-secondary">Alterar senha</button>
+                    <label for="email">E-mail: <?= $userData['usuario_email'] ?></label><br><br>
+                    <button id="alterar_senha" class="btn btn-secondary" onclick="trocaDisplay('alterar_senha_div')">Alterar senha</button>
                 </div>
             </div><br><br>
 
             <div id="endereco">
                 <div id="endereco1">
-                    <label for="CEP">CEP: <?= $userData['CEP'] ?></label><br>
-                    <label>UF: <?= $userData['UF'] ?></label><br>
-                    <label>Cidade: <?= $userData['cidade'] ?></label><br>
-                    <label for="bairro">Bairro: <?= $userData['bairro'] ?></label><br>
+                    <label for="CEP">CEP: <?= $userData['usuario_cep'] ?></label><br>
+                    <label>UF: <?= $userData['usuario_uf'] ?></label><br>
+                    <label>Cidade: <?= $userData['usuario_cidade'] ?></label><br>
+                    <label for="bairro">Bairro: <?= $userData['usuario_bairro'] ?></label><br>
 
                 </div>
                 <div>
                     <label for="rua">Rua</label><br>
-                    <label for="numero_entrada">Número: <?= $userData['numero'] ?></label><br>
-                    <?php if (!empty($userData['complemento'])) : ?>
-                        <label for="complemento">Complemento: <?= $userData['complemento'] ?></label><br>
+                    <label for="numero_entrada">Número: <?= $userData['usuario_numero'] ?></label><br>
+                    <?php if (!empty($userData['usuario_complemento'])) : ?>
+                        <label for="complemento">Complemento: <?= $userData['usuario_complemento'] ?></label><br>
                     <?php endif; ?>
                 </div>
             </div>
         </div><br>
 
+        <div id="alterar_senha_div" class="invisivel">
+            <div id="div_edit_senha">
+                <div id="div_edit_senha_div">
+
+                    <button id="div_edit_senha_div_fechar" onclick="trocaDisplay('alterar_senha_div')">X</button><br>
+                    
+                    <h3>Altere sua senha:</h3>
+
+                    <form action="perfil-editar-senha48reg84erg" method="post">
+                        <input type="password" placeholder="Nova senha"><br><br>
+                        <input name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br><br>
+
+                        <button type="submit" class="btn btn-success">Alterar</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
         <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'comum') : ?>
             <h1>Planos adiquiridos</h1>
             <div id="planosObtidos">
-                <?php if ($numeroPedidos != "0") : ?>
-                    <?php foreach ($findPedidos as $pedido) : ?>
+                <?php if ($contratos != false) : ?>
+                    <?php foreach ($contratos as $contrato) : ?>
                         <div id="containerPlanoPerfil">
                             <div>
                                 <h5>Nome do Plano</h5><br>
-                                <p><?= $pedido->id ?></p>
+                                <p><?= $contrato['contratos_nome'] ?></p>
                             </div>
                             <div>
                                 <h5>Data</h5><br>
-                                <p><?= $pedido->created_at ?></p>
+                                <p><?= $contrato['contratos_vigencia'] ?></p>
                             </div>
                             <div>
                                 <h5>Valor/mês</h5><br>
-                                <p><?= $pedido->valor ?></p>
+                                <p><?= $contrato['contratos_valor'] ?></p>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
                 <?php else : ?>
-                    <h2 id="textvazio" class="carrinhoVazio">Você não tem pedidos registrados.</h2><br>
+                    <h2 id="textvazio" class="carrinhoVazio">Você não tem planos registrados.</h2><br>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
