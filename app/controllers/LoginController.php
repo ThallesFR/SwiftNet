@@ -33,6 +33,20 @@ class LoginController extends RenderViews
         $Auth = new Auth();
         $Auth->logout();
         
-    }
+        if (!isset($_SESSION['user'])|| $_SESSION['tipo']=='master') {
+            header('Location: http://localhost/SwiftNet/');
+            die();
+        }
 
+        // Registrar log
+        $log['log_user'] = $_SESSION['user'];
+        $log['log_tipo'] = 'logout';
+    
+
+        $logs = new LogsModel;
+        $logs->insert($log);
+
+        // Redirecionar após autenticação
+        header('Location: http://localhost/SwiftNet/');
+    }
 }

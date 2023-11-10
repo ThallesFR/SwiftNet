@@ -11,7 +11,7 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "banda"):?>
+            <?php if($plano["planos_tipo"] == "Banda Larga"):?>
 
                 <?php $velocidade_plano = null;
                     foreach ($velocidade as $elemento_velocidade) {
@@ -67,7 +67,7 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "fixo"):?>
+            <?php if($plano["planos_tipo"] == "Telefonia Fixa"):?>
 
                 
                 <?php $fminutos_plano = null;
@@ -78,7 +78,7 @@
                         }
                     }?>
 
-                <div class="containerPlanos">
+                <form  method="post" action="contratar-plano" class="containerPlanos">
 
                     <h3><?= $plano['planos_nome'] ?></h3>
 
@@ -89,12 +89,12 @@
                     <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
 
                     <div class="contratarPlano">
-                        <button>Contratar</button>
+                        <button type="submit">Contratar</button>
                     </div><br>
 
                     <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
                     
-                </div><br>
+                </form><br>
 
                 <div class=" invisivel" id="<?= $plano['id_planos']?>">
                     <div id="card_detalhes_planos">
@@ -122,7 +122,7 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "móvel"):?>
+            <?php if($plano["planos_tipo"] == "Telefonia Móvel"):?>
                  
                 <?php 
                     $fminutos_plano = null;

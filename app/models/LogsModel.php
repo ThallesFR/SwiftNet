@@ -31,6 +31,18 @@ class LogsModel extends DatabaseConect
 
     }
 
+    
+    public function insert($dados)
+    {
+        $colunas = implode(", ", array_keys($dados));
+        $valores = ":" . implode(", :", array_keys($dados));
+        $stm = $this->pdo->prepare("INSERT INTO logs ($colunas) VALUES ($valores)");
+        foreach ($dados as $key => $value) {
+            $stm->bindValue(":$key", $value);
+        }
+        return $stm->execute();
+    }
+
     public function delete( $id)
     {
         $stm = $this->pdo->prepare("DELETE FROM logs WHERE log_user =:id");

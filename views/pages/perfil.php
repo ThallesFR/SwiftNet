@@ -9,11 +9,11 @@
             </svg>
         </div>
 
-        <h4>Olá!</h4>
+        <h4>Olá, <?= $userData['usuario_nome'] ?>!</h4>
     </div>
 
     <section>
-        <h1>Dados pessoais</h1>
+        <h1>Dados pessoais </h1>
         <div id="dadosPessoais">
             <div id="infoPessoais">
                 <div id="infoPessoais1">
@@ -40,7 +40,7 @@
 
                 </div>
                 <div>
-                    <label for="rua">Rua</label><br>
+                    <label for="rua">Rua: <?= $userData['usuario_rua']?> </label><br>
                     <label for="numero_entrada">Número: <?= $userData['usuario_numero'] ?></label><br>
                     <?php if (!empty($userData['usuario_complemento'])) : ?>
                         <label for="complemento">Complemento: <?= $userData['usuario_complemento'] ?></label><br>

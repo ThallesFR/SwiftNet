@@ -10,9 +10,9 @@
                 <h5 class="camposListaUsers">Ações</h5><br>
             </div>
 
-                <!---------------------------------------------------------lista de usuários ---------------------------------------------------------->
-        <?php foreach ($usuarios as $usuario) : ?>
-            <?php if ($usuario['usuario_tipo'] === 'comum') : ?>
+            <!---------------------------------------------------------lista de usuários ---------------------------------------------------------->
+            <?php foreach ($usuarios as $usuario) : ?>
+                <?php if ($usuario['usuario_tipo'] === 'comum') : ?>
 
                     <?php $id_user = $usuario['id_usuario']; ?>
 
@@ -76,59 +76,56 @@
                     </div>
     </div>
 
-        <!---------------------------------- detalhes dos usuários  --------------------------------------->
-            <div id="<?= $id_user ?>" class="invisivel">
-                <div id="card_detalhes_users" class="card_detalhes_users">
-                    <button class="fechar_detalhes_user" type="button" onclick="trocaDisplay('<?= $id_user ?>')">
-                        <h4>X</h4>
-                    </button>
-                    <div id="card_detalhes_users_div">
-                        <h2>Detalhes do usuário</h2><br><br>
-                        <p>Nome: <?= $usuario['usuario_nome'] ?></p>
-                        <p>Data de Nascimento: <?= $usuario['usuario_nascimento'] ?></p>
-                        <p>CPF: <?= $usuario['usuario_cpf'] ?></p>
-                        <p>CEP: <?= $usuario['usuario_cep'] ?></p>
-                        <p>Email: <?= $usuario['usuario_email'] ?></p><br>
+    <!---------------------------------- detalhes dos usuários  --------------------------------------->
+    <div id="<?= $id_user ?>" class="invisivel">
+        <div id="card_detalhes_users" class="card_detalhes_users">
+            <button class="fechar_detalhes_user" type="button" onclick="trocaDisplay('<?= $id_user ?>')">
+                <h4>X</h4>
+            </button>
+            <div id="card_detalhes_users_div">
+                <h2>Detalhes do usuário</h2><br><br>
+                <p>Nome: <?= $usuario['usuario_nome'] ?></p>
+                <p>Data de Nascimento: <?= $usuario['usuario_nascimento'] ?></p>
+                <p>CPF: <?= $usuario['usuario_cpf'] ?></p>
+                <p>CEP: <?= $usuario['usuario_cep'] ?></p>
+                <p>Email: <?= $usuario['usuario_email'] ?></p><br>
 
 
-                        <!------------------ logs ------------------->
-                        <h3 id="h3_logs">Logs:</h3>
-                        <div id="logs_users">
-                            <?php
-                            $exibiu_algo = false;
+                <!------------------ logs ------------------->
+                <h3 id="h3_logs">Logs:</h3>
+                <div id="logs_users">
+                    <?php
+                    $exibiu_algo = false;
 
-                            foreach ($logs as $elemento_log) {
-                                if ($elemento_log['log_user'] == $id_user) {
-                                    foreach ($perguntas as $elemento_pergunta) {
-                                        if ($elemento_pergunta['id_2fa'] == $elemento_log["log_2fa"]) {
-                                            $pergunta = $elemento_pergunta;
-                                            $exibiu_algo = true;
+                    foreach ($logs as $elemento_log) {
+                        if ($elemento_log['log_user'] == $id_user) {
+                            $exibiu_algo = true;
 
-                                            echo '<div id="cards_log">';
-                                                echo '<div id="cards_log_login_logout">';
-                                                    echo '<h6>Login: ' . $elemento_log['log_login'] . '</h6>';
-                                                    echo '<h6>Logout: ' . $elemento_log['log_logout'] . '</h6>';
-                                                echo '</div>';
-                                                echo '<p>Autenticação: ' . $pergunta['2fa_quest'] . '</p>';
-                                            echo '</div>';
-                                        }
-                                    }
+
+                            echo '<div id="cards_log">';
+                                echo '<p>' . $elemento_log['log_tipo'] . ' </p>';
+                                if ($elemento_log['log_2fa'] != null) {
+                                    echo '<p>Autenticação: ' .  $elemento_log['log_2fa'] . '</p>';
                                 }
-                            }
+                                echo '<p>Feito em: ' . date("d/m/Y H:i:s", strtotime($elemento_log['log_data'])). '</p>';
+                               
+                            echo '</div>';
+                        }
+                    }
 
-                            if (!$exibiu_algo) {
-                                echo "Inexistente";
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    if ($exibiu_algo == false) {
+                        echo "Inexistente";
+                    }
+                    ?>
                 </div>
             </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>
+<?php endforeach; ?>
 
-        <?php else : ?>
-            <h2 id="textvazio" class="carrinhoVazio">Você não tem usuários registrados.</h2><br>
-        <?php endif; ?>
+<?php else : ?>
+    <h2 id="textvazio" class="carrinhoVazio">Você não tem usuários registrados.</h2><br>
+<?php endif; ?>
 </div>
 </main>

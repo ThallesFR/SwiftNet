@@ -11,7 +11,6 @@ class PlanosController extends RenderViews
 
         $planos_model = new PlanosModel();
         $planos = $planos_model->select_tabel();
-
         
         $F_Dados_model = new F_DadosModel();
         $F_Dados = $F_Dados_model->select_tabel();
@@ -21,6 +20,8 @@ class PlanosController extends RenderViews
 
         $VelocidadeModel = new VelocidadeModel();
         $Velocidade = $VelocidadeModel->select_tabel();
+
+        
 
         $this->loadView('planos', [
             'title' => 'Planos',

@@ -16,7 +16,7 @@ class PerfilController extends RenderViews
         if ($_SESSION['tipo'] == "comum") {
             $contratos_model = new ContratosModel();
             $contratos = $contratos_model->select_id($_SESSION['user']);
-        }
+        }else { $contratos=null;}
 
         $this->loadView('perfil', [
             'title' => 'Perfil',

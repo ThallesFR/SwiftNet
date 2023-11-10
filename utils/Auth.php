@@ -55,11 +55,11 @@ class Auth extends DatabaseConect
         if (!empty($Post_resposta) && !empty($Post_pergunta) && !empty($id_user)) {
 
             // define o campo que cada pergunta busca na tabela usuário
-            if ($Post_pergunta == 'Qual o nome da sua mãe completo?') {
+            if ($Post_pergunta == 'Qual o nome completo da sua mãe?') {
                 $resposta = "usuario_mae";
             }
 
-            if ($Post_pergunta == 'Qual a data do seu nascimento?') {
+            if ($Post_pergunta == 'Qual a sua data de nascimento?') {
                 $resposta = "usuario_nascimento";
             }
 
@@ -91,12 +91,10 @@ class Auth extends DatabaseConect
                     session_start();
                 }
 
-                // Armazena o ID do usuário e o tipo de usuário na sessão
+                // Armazena o ID e o tipo de usuário na sessão
                 $_SESSION['user'] = $usuario['id_usuario'];
                 $_SESSION['tipo'] = $usuario['usuario_tipo'];
 
-                // Redireciona o usuário para a página inicial
-                header('Location: http://localhost/SwiftNet/');
             } else {
                 // Exibe uma mensagem de erro se o login ou a senha estiverem incorretos
                 echo "Falha ao logar! Reposta incorreta"; // criar uma div e puchar o js pra mostrar esta div error aqui 
@@ -116,8 +114,6 @@ class Auth extends DatabaseConect
         }
 
         session_destroy();
-
-        header('Location: http://localhost/SwiftNet/');
     }
 
 
