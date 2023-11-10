@@ -16,6 +16,13 @@
     require_once __DIR__ . "/views/components/header.php";
     ?>
 
+
+    <!------------------------------ alerts ---------------->
+
+    <?php
+    require_once __DIR__ . "/views/components/alert.php";
+    ?>
+
     <!------------------------------ renderização das páginas --------------------------------->
     <?php
     function generateUrl($path)
@@ -48,7 +55,7 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="<?php echo  generateUrl('/public/js/invisivel.js') ?>"></script>
+    <script src="<?php echo  generateUrl('/public/js/funcs_index.js') ?>"></script>
 </body>
 
 </html>

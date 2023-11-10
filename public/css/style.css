@@ -19,6 +19,7 @@ main {
 .error_input {
   color: red !important;
   outline: 2px solid rgb(212, 14, 14) !important;
+  border: none!important;
 }
 
 .error_input:focus {
@@ -28,18 +29,40 @@ main {
 /*-------------------------- campo  invisivel ------------------*/
 .invisivel {
   display: none;
-
 }
 
 .visivel {
   display: block;
-
 }
-
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Componentes                       ////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////  alerts /////////////////////////////////////////////////////////////////*/
+
+#alertas{
+  width: 40vw;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 100px;
+  display: none;
+}
+
+@media (max-width: 1020px){
+  #alertas{
+    width: 50vw;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 720px){
+  #alertas{
+    width: 80vw;
+    font-size: smaller;
+  }
+}
+
 
 /*///////////////////////////////////////////////////////////////  header /////////////////////////////////////////////////////////////////*/
 header {
@@ -103,7 +126,6 @@ header {
 
 #loginNav {
   display: flex;
-  /*--_*/
   height: 100%;
   width: 100px;
   color: white;
@@ -117,7 +139,6 @@ header {
 
 #perfilDiv {
   display: flex;
-  /* deixa o perfil oculto*/
   height: 100%;
   width: 100px;
   align-items: center;
@@ -496,6 +517,7 @@ h2 {
   color: #5E1C6F;
   padding: 20px;
   background: white;
+  position: fixed;
   width: 30%;
   border-radius: 5px;
   text-align: center;
@@ -508,6 +530,18 @@ h2 {
   color: #33083d;
   background: none;
   border: none;
+}
+
+.input_alterar_senha{
+  width: 70%;
+}
+
+.input_alterar_senha:focus{
+  outline: none;
+}
+
+.span_alterar_senha{
+  color: red;
 }
 
 #div_edit_senha_div_fechar:hover {
@@ -531,6 +565,11 @@ h2 {
   #mainPerfil h1 {
     font-size: small;
   }
+  #div_edit_senha_div {
+    width: 90vw;
+
+  }
+  
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

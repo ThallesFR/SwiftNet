@@ -58,10 +58,13 @@
                     <h3>Altere sua senha:</h3>
 
                     <form action="perfil-editar-senha48reg84erg" method="post">
-                        <input id="nova_senha" type="password" placeholder="Nova senha"><br><br>
-                        <input id="conf_nova_senha" name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br><br>
+                        <input class="input_alterar_senha" id="nova_senha" type="password" placeholder="Nova senha"><br>
+                        <span  class="span_alterar_senha" id="span_senha"></span><br><br>
 
-                        <button type="submit" class="btn btn-success">Alterar</button>
+                        <input class="input_alterar_senha" id="conf_nova_senha" name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br>
+                        <span  class="span_alterar_senha" id="span_confSenha"></span><br><br>
+
+                        <button id="alterar_senha_button" type="submit" class="btn btn-success">Alterar</button>
                     </form>
 
 
@@ -100,3 +103,4 @@
         <?php endif; ?>
     </section>
 </main>
+<script src="<?php echo  generateUrl('/public/js/validate_edite_senha.js'); ?>"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/11/2023 às 08:17
+-- Tempo de geração: 10/11/2023 às 20:17
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -52,16 +52,19 @@ CREATE TABLE `contratos` (
   `contratos_valor` decimal(10,2) NOT NULL,
   `contratos_vigencia` date NOT NULL,
   `contratos_nome` varchar(45) NOT NULL,
-  `contratos_user` int(11) NOT NULL
+  `contratos_user` int(11) NOT NULL,
+  `contratos_tipo` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `contratos`
 --
 
-INSERT INTO `contratos` (`id_contratos`, `contratos_valor`, `contratos_vigencia`, `contratos_nome`, `contratos_user`) VALUES
-(1, 100.00, '2023-12-31', 'Contrato 1', 1),
-(2, 200.00, '2024-01-31', 'Contrato 2', 2);
+INSERT INTO `contratos` (`id_contratos`, `contratos_valor`, `contratos_vigencia`, `contratos_nome`, `contratos_user`, `contratos_tipo`) VALUES
+(1, 100.00, '2023-12-31', 'Contrato 1', 1, 'Banda Larga'),
+(2, 200.00, '2024-01-31', 'Contrato 2', 2, 'Banda Larga'),
+(10, 49.99, '2024-11-10', 'Plano Fixo 3', 1, 'Telefonia Fixa'),
+(11, 49.99, '2024-11-10', 'Plano Móvel 2', 1, 'Telefonia Móvel');
 
 -- --------------------------------------------------------
 
@@ -136,7 +139,15 @@ INSERT INTO `logs` (`id_log`, `log_data`, `log_user`, `log_tipo`, `log_2fa`) VAL
 (17, '2023-11-10 07:00:50', 1, 'login', 'Qual o nome completo da sua mãe?'),
 (18, '2023-11-10 07:00:58', 1, 'logout', NULL),
 (19, '2023-11-10 07:15:57', 1, 'login', 'Qual a sua data de nascimento?'),
-(20, '2023-11-10 07:16:28', 1, 'logout', NULL);
+(20, '2023-11-10 07:16:28', 1, 'logout', NULL),
+(21, '2023-11-10 13:54:29', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(22, '2023-11-10 15:07:43', 1, 'logout', NULL),
+(23, '2023-11-10 15:40:45', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(24, '2023-11-10 15:43:44', 1, 'logout', NULL),
+(25, '2023-11-10 16:03:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(26, '2023-11-10 17:39:36', 1, 'logout', NULL),
+(27, '2023-11-10 19:17:05', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(28, '2023-11-10 19:17:11', 1, 'logout', NULL);
 
 -- --------------------------------------------------------
 
@@ -312,7 +323,7 @@ ALTER TABLE `2fa`
 -- AUTO_INCREMENT de tabela `contratos`
 --
 ALTER TABLE `contratos`
-  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `franquia_dados`
@@ -330,7 +341,7 @@ ALTER TABLE `franquia_minutos`
 -- AUTO_INCREMENT de tabela `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `planos`
