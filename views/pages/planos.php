@@ -11,19 +11,21 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "Banda Larga"):?>
+            <?php if ($plano["planos_tipo"] == "Banda Larga") : ?>
 
                 <?php $velocidade_plano = null;
-                    foreach ($velocidade as $elemento_velocidade) {
-                        if ($elemento_velocidade['id_velocidade'] == $plano['planos_velocidade']) {
-                            $velocidade_plano= $elemento_velocidade['velocidade_quantidade'];
-                            break;
-                        }
-                    }?>
+                foreach ($velocidade as $elemento_velocidade) {
+                    if ($elemento_velocidade['id_velocidade'] == $plano['planos_velocidade']) {
+                        $velocidade_plano = $elemento_velocidade['velocidade_quantidade'];
+                        break;
+                    }
+                } ?>
 
 
 
-                <div class="containerPlanos">
+                <form method="POST" action="contratar-plano485asd459" class="containerPlanos">
+
+                    <input name="id_planos" type="hidden" value="<?= $plano['id_planos'] ?>">
 
                     <h3><?= $plano['planos_nome'] ?></h3>
 
@@ -31,32 +33,32 @@
 
                     <p class="descricaoPlano"> <?= $plano['planos_descricao'] ?></p>
 
-                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+                    <h2><?= "R$" . number_format($plano['planos_valor'], 2, ',', '.') ?></h2><br>
 
                     <div class="contratarPlano">
                         <button>Contratar</button>
                     </div><br>
 
-                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
-                    
-                </div><br>
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">+ detalhes da oferta</button></p>
 
-                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                </form><br>
+
+                <div class=" invisivel" id="<?= $plano['id_planos'] ?>">
                     <div id="card_detalhes_planos">
                         <div id="card_detalhes_planos_div">
-                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
-                            <h4>X</h4>
-                        </button>
+                            <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">
+                                <h4>X</h4>
+                            </button>
 
-                        <h2>Detalhes do plano:</h2><br>
+                            <h2>Detalhes do plano:</h2><br>
                             <p>
-                                <?= $plano['planos_detalhes']?>
+                                <?= $plano['planos_detalhes'] ?>
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
-            <?php endif?>
+            <?php endif ?>
         <?php endforeach; ?>
     </div>
 
@@ -67,18 +69,20 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "Telefonia Fixa"):?>
+            <?php if ($plano["planos_tipo"] == "Telefonia Fixa") : ?>
 
-                
+
                 <?php $fminutos_plano = null;
-                    foreach ($F_minutos as $elemento_fminutos) {
-                        if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
-                            $fminutos_plano= $elemento_fminutos['franquia_minutos_quantidade'];
-                            break;
-                        }
-                    }?>
+                foreach ($F_minutos as $elemento_fminutos) {
+                    if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
+                        $fminutos_plano = $elemento_fminutos['franquia_minutos_quantidade'];
+                        break;
+                    }
+                } ?>
 
-                <form  method="post" action="contratar-plano" class="containerPlanos">
+                <form method="POST" action="contratar-plano485asd459" class="containerPlanos">
+
+                    <input name="id_planos" type="hidden" value="<?= $plano['id_planos'] ?>">
 
                     <h3><?= $plano['planos_nome'] ?></h3>
 
@@ -86,32 +90,32 @@
 
                     <p class="descricaoPlano"><?= $plano['planos_descricao'] ?></p>
 
-                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+                    <h2><?= "R$" . number_format($plano['planos_valor'], 2, ',', '.') ?></h2><br>
 
                     <div class="contratarPlano">
                         <button type="submit">Contratar</button>
                     </div><br>
 
-                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
-                    
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">+ detalhes da oferta</button></p>
+
                 </form><br>
 
-                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                <div class=" invisivel" id="<?= $plano['id_planos'] ?>">
                     <div id="card_detalhes_planos">
                         <div id="card_detalhes_planos_div">
-                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
-                            <h4>X</h4>
-                        </button>
+                            <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">
+                                <h4>X</h4>
+                            </button>
 
-                        <h2>Detalhes do plano:</h2><br>
+                            <h2>Detalhes do plano:</h2><br>
                             <p>
-                                <?= $plano['planos_detalhes']?>
+                                <?= $plano['planos_detalhes'] ?>
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
-            <?php endif?>
+            <?php endif ?>
         <?php endforeach; ?>
     </div>
 
@@ -122,63 +126,65 @@
     </h1><br>
     <div class="containerTiposPlanos">
         <?php foreach ($planos as $plano) : ?>
-            <?php if($plano["planos_tipo"] == "Telefonia Móvel"):?>
-                 
-                <?php 
-                    $fminutos_plano = null;
-                    foreach ($F_minutos as $elemento_fminutos) {
-                        if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
-                            $fminutos_plano= $elemento_fminutos['franquia_minutos_quantidade'];
-                            break;
-                        }
-                    }
+            <?php if ($plano["planos_tipo"] == "Telefonia Móvel") : ?>
 
-                    $fdados_plano = null;
-                    foreach ($F_Dados as $elemento_fdados) {
-                        if ($elemento_fdados['id_franquia_dados'] == $plano['planos_fdados']) {
-                            $fdados_plano= $elemento_fdados['franquia_dados_quantidade'];
-                            break;
-                        }
+                <?php
+                $fminutos_plano = null;
+                foreach ($F_minutos as $elemento_fminutos) {
+                    if ($elemento_fminutos['id_franquia_minutos'] == $plano['planos_fminutos']) {
+                        $fminutos_plano = $elemento_fminutos['franquia_minutos_quantidade'];
+                        break;
                     }
-                    
-                    ?>
+                }
 
-                <div class="containerPlanos">
+                $fdados_plano = null;
+                foreach ($F_Dados as $elemento_fdados) {
+                    if ($elemento_fdados['id_franquia_dados'] == $plano['planos_fdados']) {
+                        $fdados_plano = $elemento_fdados['franquia_dados_quantidade'];
+                        break;
+                    }
+                }
+
+                ?>
+
+                <form method="POST" action="contratar-plano485asd459" class="containerPlanos">
+
+                    <input name="id_planos" type="hidden" value="<?= $plano['id_planos'] ?>">
 
                     <h3><?= $plano['planos_nome'] ?></h3>
 
-                    <h2><?=   $fdados_plano ?></h2>
+                    <h2><?= $fdados_plano ?></h2>
 
                     <h3><?= $fminutos_plano ?></h3>
 
                     <p class="descricaoPlano"><?= $plano['planos_descricao'] ?></p>
 
-                    <h2><?="R$" . number_format($plano['planos_valor'], 2, ',', '.')?></h2><br>
+                    <h2><?= "R$" . number_format($plano['planos_valor'], 2, ',', '.') ?></h2><br>
 
                     <div class="contratarPlano">
                         <button>Contratar</button>
                     </div><br>
 
-                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">+ detalhes da oferta</button></p>
-                    
-                </div><br>
+                    <p class="descricaoPlano"><button type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">+ detalhes da oferta</button></p>
 
-                <div class=" invisivel" id="<?= $plano['id_planos']?>">
+                </form><br>
+
+                <div class=" invisivel" id="<?= $plano['id_planos'] ?>">
                     <div id="card_detalhes_planos">
                         <div id="card_detalhes_planos_div">
-                        <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos']?>')">
-                            <h4>X</h4>
-                        </button>
+                            <button class="fechar_detalhes_planos" type="button" onclick="trocaDisplay('<?= $plano['id_planos'] ?>')">
+                                <h4>X</h4>
+                            </button>
 
-                        <h2>Detalhes do plano:</h2><br>
+                            <h2>Detalhes do plano:</h2><br>
                             <p>
-                                <?= $plano['planos_detalhes']?>
+                                <?= $plano['planos_detalhes'] ?>
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
-            <?php endif?>
+            <?php endif ?>
         <?php endforeach; ?>
     </div>
 </main>

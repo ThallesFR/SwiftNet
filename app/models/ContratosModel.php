@@ -30,6 +30,19 @@ class ContratosModel extends DatabaseConect
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    
+    public function insert($dados)
+    {
+        $colunas = implode(", ", array_keys($dados));
+        $valores = ":" . implode(", :", array_keys($dados));
+        $stm = $this->pdo->prepare("INSERT INTO contratos ($colunas) VALUES ($valores)");
+        foreach ($dados as $key => $value) {
+            $stm->bindValue(":$key", $value);
+        }
+        return $stm->execute();
+    }
+  
+
     public function delete( $id)
     {
         $stm = $this->pdo->prepare("DELETE FROM contratos WHERE contratos_user =:id");

@@ -19,6 +19,11 @@ class Auth extends DatabaseConect
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            if ($usuario === false) {
+                echo 'Falha ao logar! login ou senha incorretos';
+                die();
+            }
+
             if ($usuario['usuario_tipo'] == "comum") {
                 // Redireciona para a página 'autenticacao' passando os parâmetros via URL
                 header("Location: autenticacao/asdklksdaas648/" . $usuario['id_usuario']);
@@ -39,8 +44,6 @@ class Auth extends DatabaseConect
                     // Redireciona o usuário para a página inicial
                     header('Location: http://localhost/SwiftNet/');
                 }
-            } else {
-                echo "Falha ao logar! login ou senha incorretos";
             }
         } else {
             echo "Preencha o login e senha corretamente";
@@ -51,6 +54,11 @@ class Auth extends DatabaseConect
     // Definição da função de autenticação que recebe os parâmetros: 
     public function autenticacao($Post_pergunta, $Post_resposta, $id_user)
     {
+        if($Post_resposta == '') {
+            // Exibe uma mensagem de erro se os campos de login e senha não foram preenchidos corretamente
+            echo "Preencha o campo resposta ";
+            die();
+        }
         // Verifica se os campos não estão vazios
         if (!empty($Post_resposta) && !empty($Post_pergunta) && !empty($id_user)) {
 
@@ -83,6 +91,12 @@ class Auth extends DatabaseConect
             // Busca o resultado da consulta e armazena na variável $usuario
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
+            if ($usuario === false) {
+                echo 'Falha ao se autenticar! Resposta incorreta';
+                die();
+            }
+
             // Verifica se a consulta retornou algum resultado
             if ($usuario) {
                 // Verifica se a sessão já foi iniciada
@@ -94,15 +108,8 @@ class Auth extends DatabaseConect
                 // Armazena o ID e o tipo de usuário na sessão
                 $_SESSION['user'] = $usuario['id_usuario'];
                 $_SESSION['tipo'] = $usuario['usuario_tipo'];
-
-            } else {
-                // Exibe uma mensagem de erro se o login ou a senha estiverem incorretos
-                echo "Falha ao logar! Reposta incorreta"; // criar uma div e puchar o js pra mostrar esta div error aqui 
             }
-        } else {
-            // Exibe uma mensagem de erro se os campos de login e senha não foram preenchidos corretamente
-            echo "Preencha a resposta corretamente";
-        }
+        } 
     }
 
 

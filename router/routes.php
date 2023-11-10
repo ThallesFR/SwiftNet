@@ -5,6 +5,7 @@ $routes = [
     '/usuarios' => 'UserController@index',
     '/usuarios/sgdohiqergh849dfjhf-delete/{id}' => 'UserController@delete_user',
     '/planos' => 'PlanosController@index',
+    '/contratar-plano485asd459' => 'PlanosController@cadastrar_plano',
     '/autenticacao/asdklksdaas648/{id}' => '_2faController@index',
     '/autenticacao/asdklksdaas648/5d4as6s-session/{id}' => '_2faController@autenticacao_2fa',
     '/login' => 'LoginController@index',

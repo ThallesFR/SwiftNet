@@ -20,4 +20,14 @@ class PlanosModel extends DatabaseConect
         }
 
     }
+
+    public function select_id($id)
+    {
+        $stm = $this->pdo->prepare("SELECT * FROM planos WHERE id_planos = :id");
+        $stm->bindValue(":id", $id);
+        $stm->execute();
+
+        // Use fetch para obter uma única linha (um usuário) ou fetchAll para obter todas as linhas
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

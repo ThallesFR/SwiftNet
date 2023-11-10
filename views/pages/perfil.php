@@ -58,8 +58,8 @@
                     <h3>Altere sua senha:</h3>
 
                     <form action="perfil-editar-senha48reg84erg" method="post">
-                        <input type="password" placeholder="Nova senha"><br><br>
-                        <input name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br><br>
+                        <input id="nova_senha" type="password" placeholder="Nova senha"><br><br>
+                        <input id="conf_nova_senha" name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br><br>
 
                         <button type="submit" class="btn btn-success">Alterar</button>
                     </form>
@@ -80,7 +80,11 @@
                                 <p><?= $contrato['contratos_nome'] ?></p>
                             </div>
                             <div>
-                                <h5>Data</h5><br>
+                                <h5>Tipo do Plano</h5><br>
+                                <p><?= $contrato['contratos_tipo'] ?></p>
+                            </div>
+                            <div>
+                                <h5>Vigência</h5><br>
                                 <p><?= $contrato['contratos_vigencia'] ?></p>
                             </div>
                             <div>
