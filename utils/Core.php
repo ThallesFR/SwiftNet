@@ -32,9 +32,9 @@ class Core
         }
 
         if(!$routerFound){ // Verifica se nenhum roteador foi encontrado.
-            require_once __DIR__."/../app/controllers/NotFoundController.php";// Chama o arquivo do controlador correspondente.
-            $controller = new NotFoundController();//Instancia o controlador.
-            $controller->index(); //Direciona para o controlador "NotFoundController".
+            require_once __DIR__."/../app/controllers/AlertasController.php";// Chama o arquivo do controlador correspondente.
+            $controller = new AlertasController();//Instancia o controlador.
+            $controller->not_found(); //Direciona para o controlador "NotFoundController".
         }
 
     }

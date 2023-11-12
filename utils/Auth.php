@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . "/../app/controllers/AlertasController.php";
+
 class Auth extends DatabaseConect
 {
     private $pdo;
@@ -20,9 +22,11 @@ class Auth extends DatabaseConect
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($usuario === false) {
-                echo 'Falha ao logar! login ou senha incorretos';
+                $controller_alert = new AlertasController();
+                $controller_alert->enviar_alerta('danger', 'Falha ao logar!', ' Login ou senha incorretos.', 'http://localhost/SwiftNet/login');
                 die();
             }
+
 
             if ($usuario['usuario_tipo'] == "comum") {
                 // Redireciona para a página 'autenticacao' passando os parâmetros via URL
@@ -46,7 +50,9 @@ class Auth extends DatabaseConect
                 }
             }
         } else {
-            echo "Preencha o login e senha corretamente";
+            $controller_alert = new AlertasController();
+            $controller_alert->enviar_alerta('danger', 'Campos vazios!', 'Preencha o login e a senha.', 'http://localhost/SwiftNet/login');
+            die();
         }
     }
 
@@ -54,9 +60,10 @@ class Auth extends DatabaseConect
     // Definição da função de autenticação que recebe os parâmetros: 
     public function autenticacao($Post_pergunta, $Post_resposta, $id_user)
     {
-        if($Post_resposta == '') {
+        if ($Post_resposta == '') {
             // Exibe uma mensagem de erro se os campos de login e senha não foram preenchidos corretamente
-            echo "Preencha o campo resposta ";
+            $controller_alert = new AlertasController();
+            $controller_alert->enviar_alerta('danger', 'Campos vazios!', 'Preencha o campo resposta quando logar.', 'http://localhost/SwiftNet/login');
             die();
         }
         // Verifica se os campos não estão vazios
@@ -93,7 +100,9 @@ class Auth extends DatabaseConect
 
 
             if ($usuario === false) {
-                echo 'Falha ao se autenticar! Resposta incorreta';
+
+                $controller_alert = new AlertasController();
+                $controller_alert->enviar_alerta('danger', 'Resposta incorreta!', 'Preencha os campos novamente.', 'http://localhost/SwiftNet/login');
                 die();
             }
 
@@ -109,7 +118,7 @@ class Auth extends DatabaseConect
                 $_SESSION['user'] = $usuario['id_usuario'];
                 $_SESSION['tipo'] = $usuario['usuario_tipo'];
             }
-        } 
+        }
     }
 
 

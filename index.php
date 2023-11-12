@@ -16,7 +16,6 @@
     require_once __DIR__ . "/views/components/header.php";
     ?>
 
-
     <!------------------------------ alerts ---------------->
 
     <?php

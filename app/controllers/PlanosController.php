@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . "/AlertasController.php";
 
 class PlanosController extends RenderViews
 {
@@ -51,24 +52,27 @@ class PlanosController extends RenderViews
 
             if ($Planos_user['planos_tipo'] == $contrato_tipo) {
 
-                echo 'Você já possui um contrato deste tipo em vigência';
-                // die(header('Location: http://localhost/SwiftNet/planos'));
+                $controller_alert = new AlertasController();
+                $controller_alert->enviar_alerta('danger', 'Operação negada!', 'Você já possui um contrato deste tipo em vigência.', 'http://localhost/SwiftNet/planos');
                 die();
             }
         }
-         // Obtém a data atual
-         $dataAtual = date('Y-m-d');
+        // Obtém a data atual
+        $dataAtual = date('Y-m-d');
 
-         // Adiciona 1 ano à data atual correspondente à data de vigência
-         $dataDaquiUmAno = date('Y-m-d', strtotime($dataAtual . ' + 1 year'));
+        // Adiciona 1 ano à data atual correspondente à data de vigência
+        $dataDaquiUmAno = date('Y-m-d', strtotime($dataAtual . ' + 1 year'));
 
-         $novo_contrato['contratos_tipo'] = $Planos_user['planos_tipo'];
-         $novo_contrato['contratos_nome'] = $Planos_user['planos_nome'];
-         $novo_contrato['contratos_valor'] = $Planos_user['planos_valor'];
-         $novo_contrato['contratos_user'] = $_SESSION['user'];
-         $novo_contrato['contratos_vigencia'] = $dataDaquiUmAno;
+        $novo_contrato['contratos_tipo'] = $Planos_user['planos_tipo'];
+        $novo_contrato['contratos_nome'] = $Planos_user['planos_nome'];
+        $novo_contrato['contratos_valor'] = $Planos_user['planos_valor'];
+        $novo_contrato['contratos_user'] = $_SESSION['user'];
+        $novo_contrato['contratos_vigencia'] = $dataDaquiUmAno;
 
-         $contratos_model->insert($novo_contrato);
-         die(header('Location: http://localhost/SwiftNet/perfil'));
+        $contratos_model->insert($novo_contrato);
+        
+        $controller_alert = new AlertasController();
+        $controller_alert->enviar_alerta('success', 'Operação finalizada!', 'Plano adquirido com sucesso.', 'http://localhost/SwiftNet/perfil');
+        die();
     }
 }

@@ -1,6 +1,8 @@
 //////////// INDEX
 
-/* -Regex MASCARAS: linha 23
+/* 
+   -LOCAL STORAGE: linha 18
+   -Regex MASCARAS: linha 33
    -Cep validação: linha 95
    -Mascaras: linha 170
    -Validação dos campos: linha 241
@@ -20,10 +22,18 @@ function remover_error(id_) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////     MASCARAS                      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////     Regex MASCARAS                      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function mask(o, f) {
+    v_obj = o
+    v_fun = f
+    setTimeout("execmask()", 1)
+}
 
-/////////////////////////////////////////////// Regex das mascaras /////////////////////////
+function execmask() {
+    v_obj.value = v_fun(v_obj.value)
+}
+
 function masktel(v) {
     v = v.replace(/\D/g, "")
     v = v.replace(/^(\d)/, "+$1")
@@ -71,54 +81,8 @@ function maskcpf(v) {
     return v
 }
 
-//////////////////////////////////////// funções  de palicação das mascaras ////////////////////////////////////////////////////////////
-
-// Função para aplicar uma máscara a um campo de entrada
-function mask(o, f) {
-    v_obj = o;  // Armazena o objeto de entrada (campo) na variável v_obj.
-    v_fun = f;  // Armazena a função de máscara na variável v_fun.
-    setTimeout("execmask()", 1);  // Aguarda 1 milissegundo antes de chamar a função execmask().
-}
-
-// Função para executar a máscara no campo
-function execmask() {
-    v_obj.value = v_fun(v_obj.value);  // Aplica a função de máscara ao valor do campo e atribui o resultado de volta ao campo.
-}
-
-
-// Definindo uma lista de campos a serem refatorados, cada campo com seu ID, tamanho máximo e, opcionalmente, uma máscara.
-const camposParaRefatorar = [
-    { id: 'tel_fixo', maxLength: 19, mascara: masktel }, // Campo de telefone fixo
-    { id: 'tel_cel', maxLength: 19, mascara: masktel }, // Campo de telefone celular
-    { id: 'cpf', maxLength: 14, mascara: maskcpf },     // Campo de CPF
-    { id: 'CEP', maxLength: 9, mascara: maskcep },     // Campo de CEP
-    { id: 'nome', maxLength: 60 },                     // Campo de nome
-    { id: 'nomemae', maxLength: 60 },                 // Campo de nome da mãe
-    { id: 'complemento', maxLength: 60 },             // Campo de complemento de endereço
-    { id: 'login', maxLength: 6, mascara: maskapenas_letras }, // Campo de login (com máscara de letras)
-    { id: 'email', maxLength: 100 },                 // Campo de endereço de e-mail
-    { id: 'UF', maxLength: 2, mascara: maskapenas_letras },    // Campo de UF (com máscara de letras)
-    { id: 'cidade', maxLength: 60 },                // Campo de cidade
-    { id: 'bairro', maxLength: 60 },                // Campo de bairro
-    { id: 'rua', maxLength: 60 },                   // Campo de rua
-    { id: 'numero_entrada', maxLength: 20, mascara: maskapenas_numeros }, // Campo de número de entrada (com máscara de números)
-    { id: 'senha', maxLength: 8 },                  // Campo de senha
-    { id: 'confsenha', maxLength: 8 },             // Campo de confirmação de senha
-];
-
-// Iterando sobre a lista de campos para aplicar as configurações em cada um.
-camposParaRefatorar.forEach(campo => {
-    const elemento = id(campo.id); // Obtém o elemento do DOM com base no ID.
-    elemento.setAttribute('maxlength', campo.maxLength); // Define o tamanho máximo do campo.
-    if (campo.mascara) {
-        elemento.onkeypress = function () {
-            mask(this, campo.mascara); // Se houver uma máscara, aplica-a ao pressionar teclas.
-        };
-    }
-});
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////   CEP API  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////   CEP validção  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function limpa_formulário_cep() {
@@ -181,14 +145,50 @@ function pesquisacep(valor) {
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕES COMO EVENTOS------------------------------------------//////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////--------------------------------------------------------------------------   VALIDAÇÂO ---------------------------------------------------------------------------////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕES COMO EVENTOS------------------------------------------//////
 
-//////////////////////////////////  VALIDAR SUBMIT ////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    /////----------------------------------------------------------------------------- MASCARAS ---------------------------------------------///////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Definindo uma lista de campos a serem refatorados, cada campo com seu ID, tamanho máximo e, opcionalmente, uma máscara.
+    const camposParaRefatorar = [
+        { id: 'tel_fixo', maxLength: 19, mascara: masktel }, // Campo de telefone fixo
+        { id: 'tel_cel', maxLength: 19, mascara: masktel }, // Campo de telefone celular
+        { id: 'cpf', maxLength: 14, mascara: maskcpf },     // Campo de CPF
+        { id: 'CEP', maxLength: 9, mascara: maskcep },     // Campo de CEP
+        { id: 'nome', maxLength: 60 },                     // Campo de nome
+        { id: 'nomemae', maxLength: 60 },                 // Campo de nome da mãe
+        { id: 'complemento', maxLength: 60 },             // Campo de complemento de endereço
+        { id: 'login', maxLength: 6, mascara: maskapenas_letras }, // Campo de login (com máscara de letras)
+        { id: 'email', maxLength: 100 },                 // Campo de endereço de e-mail
+        { id: 'UF', maxLength: 2, mascara: maskapenas_letras },    // Campo de UF (com máscara de letras)
+        { id: 'cidade', maxLength: 60 },                // Campo de cidade
+        { id: 'bairro', maxLength: 60 },                // Campo de bairro
+        { id: 'rua', maxLength: 60 },                   // Campo de rua
+        { id: 'numero_entrada', maxLength: 20, mascara: maskapenas_numeros }, // Campo de número de entrada (com máscara de números)
+        { id: 'senha', maxLength: 8 },                  // Campo de senha
+        { id: 'confsenha', maxLength: 8 },             // Campo de confirmação de senha
+    ];
+
+    // Iterando sobre a lista de campos para aplicar as configurações em cada um.
+    camposParaRefatorar.forEach(campo => {
+        const elemento = id(campo.id); // Obtém o elemento do DOM com base no ID.
+        elemento.setAttribute('maxlength', campo.maxLength); // Define o tamanho máximo do campo.
+        if (campo.mascara) {
+            elemento.onkeypress = function () {
+                mask(this, campo.mascara); // Se houver uma máscara, aplica-a ao pressionar teclas.
+            };
+        }
+    });
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////--------------------------------------------------------------------------   VALIDAÇÂO ---------------------------------------------------------------------------////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////  VALIDAR SUBMIT ////////////////////////////////////////////////////////
 
     validar_submit()//--------------------------------- EXECUTA FUNÇÃO SUBMIT AO ABRIR A PAGINA-------/
 
@@ -218,19 +218,18 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
 
     ///------------------------------------------------ executa a função submit----///
+    const validateSUBMIT = () => { validar_submit(); }
+    id("body_index").addEventListener('click', validateSUBMIT);
+    const validateSubmit = () => { validar_submit(); }
+    id("body_index").addEventListener('input', validateSubmit);
+    const validateSUbmit = () => { validar_submit(); }
+    id("body_index").addEventListener('keyup', validateSUbmit);
+    const validateSUbmiT = () => { validar_submit(); }
+    id("body_index").addEventListener('wheel', validateSUbmiT);
+    const validateSUbmIT = () => { validar_submit(); }
+    id("body_index").addEventListener('mousemove', validateSUbmIT);
 
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const bodyCadastro = id("body_index");
-        const eventos = ["click", "input", "keyup", "wheel", "mousemove"];
-
-        eventos.forEach(evento => {
-            bodyCadastro.addEventListener(evento, validar_submit);
-        });
-    });
-
-
-///////////////////// NOME ///////////////////////////////////////////
+    ///////////////////// NOME ///////////////////////////////////////////
     const validateNome = (event) => {
         const input = event.currentTarget;
         const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/;
@@ -246,7 +245,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("nome").addEventListener('input', validateNome);
 
-///////////////////// NOME  DA MÃE //////////////////////////////////
+    ///////////////////// NOME  DA MÃE //////////////////////////////////
     const validateNomemae = (event) => {
         const input = event.currentTarget;
         const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/;
@@ -262,7 +261,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("nomemae").addEventListener('input', validateNomemae);
 
-////////////////////////////////////////DATA NASCIMENTO /////////////////
+    ////////////////////////////////////////DATA NASCIMENTO /////////////////
     const validateDatansci = (event) => {
         const input = event.currentTarget;
         const dataNascimento = input.value;
@@ -286,7 +285,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
 
     id("datanasci").addEventListener('input', validateDatansci);
 
-///////////////////// SEXO //////////////////////////////////////////
+    ///////////////////// SEXO //////////////////////////////////////////
     function sexo() {
 
         if (document.getElementsByName("usuario_sexo")[0].checked == false
@@ -296,7 +295,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
         }
         else { sexo_valido = true }
     }
-/////////////////////// CPF  ///////////////////////////////////
+    /////////////////////// CPF  ///////////////////////////////////
     //----------------------------------lógica CPF-------------//
     function validarCPF(cpf) {
         cpf = id("cpf").value.replace(/[^\d]+/g, '');
@@ -348,7 +347,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("cpf").addEventListener('input', validateCpf);
 
-///////////////////// TEL FIX //////////////////////////////////////////
+    ///////////////////// TEL FIX //////////////////////////////////////////
     const validateFix = (event) => {
         const input = event.currentTarget;
 
@@ -362,7 +361,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("tel_fixo").addEventListener('input', validateFix);
 
-///////////////////// TEL CEL  //////////////////////////////////////////
+    ///////////////////// TEL CEL  //////////////////////////////////////////
     const validateCel = (event) => {
         const input = event.currentTarget;
 
@@ -376,7 +375,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("tel_cel").addEventListener('input', validateCel);
 
-/////////////////////////////// CEP /////////////////////////////// 
+    /////////////////////////////// CEP /////////////////////////////// 
     const validateCEP = (event) => {
         const input = event.currentTarget;
 
@@ -390,7 +389,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("CEP").addEventListener('input', validateCEP);
 
-////////////////////////// EMAIL /////////////////////////////////////////
+    ////////////////////////// EMAIL /////////////////////////////////////////
     const validateEmail = (event) => {
         const input = event.currentTarget;
         const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -406,7 +405,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("email").addEventListener('input', validateEmail);
 
-///////////////////// LOGIN /////////////////////////////////////////////
+    ///////////////////// LOGIN /////////////////////////////////////////////
     const validateLogin = (event) => {
         const input = event.currentTarget;
         const regex = /^[A-Za-z ]+$/;
@@ -423,7 +422,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
     }
     id("login").addEventListener('input', validateLogin);
 
-///////////////////////////// SENHA ////////////////////////////////////////
+    ///////////////////////////// SENHA ////////////////////////////////////////
     const validateSenha = (event) => {
         const input = event.currentTarget;
         const senha = input.value;
@@ -453,7 +452,7 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
 
     id("senha").addEventListener('input', validateSenha);
 
-///////////////////////   CONFIRMAÇÃO DA SENHA ////////////////////////////////
+    ///////////////////////   CONFIRMAÇÃO DA SENHA ////////////////////////////////
     const validateConfsenha = (event) => {
         const input = event.currentTarget;
 
@@ -466,11 +465,6 @@ const function_events = () => {//------------------------ EXECUÇÃO DAS FUNÇÕ
         }
     }
     id("confsenha").addEventListener('input', validateConfsenha);
-
-
 }//----fechamento da function_events-------//
 
 window.onload = function_events;/////////////////////////////////////////////////////////// EXECUÇÃO DAS FUNCTION EVENTS AO ABRIR A JANELA /////////////
-
-
-
