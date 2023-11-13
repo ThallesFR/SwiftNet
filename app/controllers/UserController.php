@@ -8,12 +8,17 @@ class UserController extends RenderViews
         $Auth->protect('master');
 
         $usuarios_model = new UserModel();
-        $usuarios = $usuarios_model->select_tabel();
-
         
+        if (!isset($_POST['busca'])) {
+            $usuarios = $usuarios_model->select_tabel();
+        } else {
+            $pesquisa = $_POST['busca'];
+            $usuarios = $usuarios_model->pesquisa_id($pesquisa);
+        }
+
         $contratos_model = new ContratosModel();
         $contratos = $contratos_model->select_tabel();
-  
+
         $logs_model = new LogsModel();
         $logs = $logs_model->select_tabel();
 
@@ -23,24 +28,27 @@ class UserController extends RenderViews
         $this->loadView('usuarios', [
             'title' => 'Usuários',
             'usuarios' => $usuarios,
-            'contratos' =>$contratos,
-            'logs' =>$logs,
+            'contratos' => $contratos,
+            'logs' => $logs,
             'perguntas' => $_2fa
-            
+
         ]);
     }
 
     public function delete_user($id)
-    {   $id_user=$id[0];         
+    {
+        $id_user = $id[0];
         $contratos_model = new ContratosModel();
         $contratos_model->delete($id_user);
-  
+
         $logs_model = new LogsModel();
         $logs_model->delete($id_user);
-        
+
         $usuarios_model = new UserModel();
         $usuarios_model->delete($id_user);
 
         header('location: http://localhost/SwiftNet/usuarios');
     }
+
+   
 }

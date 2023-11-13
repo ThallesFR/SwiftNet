@@ -31,6 +31,16 @@ class UserModel extends DatabaseConect
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function pesquisa_id($pesquisa)
+    {
+        $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE usuario_nome LIKE :pesquisa");
+        $stm->bindValue(":pesquisa", "%$pesquisa%");
+        $stm->execute();
+
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     public function insert($dados)
     {
         $colunas = implode(", ", array_keys($dados));
@@ -41,15 +51,15 @@ class UserModel extends DatabaseConect
         }
         return $stm->execute();
     }
-  
-    public function update_senha($id,  $novaSenha)
-{
-    $stm = $this->pdo->prepare("UPDATE usuario SET usuario_senha = :novaSenha WHERE id_usuario = :id");
-    $stm->bindValue(":novaSenha", $novaSenha);
-    $stm->bindValue(":id", $id);
 
-    return $stm->execute();
-}
+    public function update_senha($id,  $novaSenha)
+    {
+        $stm = $this->pdo->prepare("UPDATE usuario SET usuario_senha = :novaSenha WHERE id_usuario = :id");
+        $stm->bindValue(":novaSenha", $novaSenha);
+        $stm->bindValue(":id", $id);
+
+        return $stm->execute();
+    }
 
 
 

@@ -41,7 +41,7 @@
 
                     <label>Data de Nascimento:</label><br>
 
-                    <input class="campos_obrigatorios" type="date" id="datanasci" name="usuario_nascimento"><br>
+                    <input class="campos_obrigatorios" type="date" id="datanasci" name="usuario_nascimento" ><br>
 
                 </div>
 

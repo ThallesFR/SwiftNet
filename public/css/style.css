@@ -19,7 +19,7 @@ main {
 .error_input {
   color: red !important;
   outline: 2px solid rgb(212, 14, 14) !important;
-  border: none!important;
+  border: none !important;
 }
 
 .error_input:focus {
@@ -41,23 +41,23 @@ main {
 
 /*///////////////////////////////////////////////////////////////  alerts /////////////////////////////////////////////////////////////////*/
 
-#alertas{
+#alertas {
   width: 40vw;
   margin-left: auto;
   margin-right: 10px;
   margin-top: 100px;
-  display:block;
+  display: block;
 }
 
-@media (max-width: 1020px){
-  #alertas{
+@media (max-width: 1020px) {
+  #alertas {
     width: 50vw;
     margin-top: 80px;
   }
 }
 
-@media (max-width: 720px){
-  #alertas{
+@media (max-width: 720px) {
+  #alertas {
     width: 80vw;
     font-size: smaller;
   }
@@ -532,15 +532,15 @@ h2 {
   border: none;
 }
 
-.input_alterar_senha{
+.input_alterar_senha {
   width: 70%;
 }
 
-.input_alterar_senha:focus{
+.input_alterar_senha:focus {
   outline: none;
 }
 
-.span_alterar_senha{
+.span_alterar_senha {
   color: red;
 }
 
@@ -565,11 +565,12 @@ h2 {
   #mainPerfil h1 {
     font-size: small;
   }
+
   #div_edit_senha_div {
     width: 90vw;
 
   }
-  
+
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -581,6 +582,35 @@ h2 {
   margin: 0 auto;
   padding: 20px;
   width: 80%;
+}
+
+#form_pesquisa_usuario {
+  margin-top: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+#form_pesquisa_usuario div {
+  border: solid 2px #5E1C6F;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+#input_pesquisa_usuario {
+  border: none;
+  background: none; 
+  outline: none;
+}
+
+#button_pesquisa_usuario {
+  background: none;
+  border: none;
+  color: #33083d;
+}
+
+#button_pesquisa_usuario :hover{
+  color:#c857e4
 }
 
 #containerUsuario {
@@ -639,19 +669,20 @@ h2 {
   text-align: left;
 }
 
-.card_detalhes_users h2{
+.card_detalhes_users h2 {
   width: 100%;
   text-align: center;
   color: #5E1C6F;
   text-decoration: underline;
 }
 
-.card_detalhes_users h3{
+.card_detalhes_users h3 {
   color: #902DA9;
 }
 
 #botoes_list_users {
   width: 20%;
+  padding-right: 5%;
 }
 
 #botoes_list_users svg {
@@ -715,22 +746,22 @@ h2 {
   border-radius: 5px;
 }
 
-#detalhes_card_contratos{
+#detalhes_card_contratos {
   width: 90%;
   height: 25%;
 }
 
-#detalhes_card_contratos_title li{
-  color: white ;
+#detalhes_card_contratos_title li {
+  color: white;
   background: #33083d;
 }
 
 #detalhes_card_contratos_plano,
-#detalhes_card_contratos_vigen{
+#detalhes_card_contratos_vigen {
   width: 35% !important;
 }
 
-#detalhes_card_contratos_valor{
+#detalhes_card_contratos_valor {
   width: 30% !important;
 }
 
@@ -749,8 +780,8 @@ h2 {
   border-bottom: solid 1px #b237ce;
 }
 
-@media (max-width: 1200px){
-  #usuariosMain{
+@media (max-width: 1200px) {
+  #usuariosMain {
     font-size: small;
   }
 }
@@ -760,6 +791,10 @@ h2 {
     width: 100%;
     font-size: xx-small;
     padding: 0px;
+  }
+
+  #form_pesquisa_usuario div{
+    margin-left: 10px;
   }
 
   #containerUsuario h5 {
@@ -780,15 +815,13 @@ h2 {
     width: 100%;
   }
 
-  #detalhes_card_contratos{
+  #detalhes_card_contratos {
     width: 100%;
   }
 
 }
 
-@media (max-width: 750px) {
-  
-}
+@media (max-width: 750px) {}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Planos                     //////////////////////////////////////////////////////////////////////////
@@ -1207,6 +1240,7 @@ h2 {
   width: 50%;
   min-width: 215px;
   outline-color: #5E1C6F;
+  color: #902DA9;
 }
 
 #main2fa input::placeholder {

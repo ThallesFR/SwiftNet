@@ -24,10 +24,11 @@
                     <label for="cpf">CPF: <?= $userData['usuario_cpf'] ?></label><br>
                     <label for="tel_fixo">Telefone fixo: <?= $userData['usuario_telefone'] ?></label><br>
                     <label for="tel_cel">Telefone celular: <?= $userData['usuario_cel'] ?></label><br>
-                </div>
-                <div id="infoPessoais2">
                     <label for="email">E-mail: <?= $userData['usuario_email'] ?></label><br><br>
-                    <button id="alterar_senha" class="btn btn-secondary" onclick="trocaDisplay('alterar_senha_div')">Alterar senha</button>
+                    
+                    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'comum') : ?>
+                        <button id="alterar_senha" class="btn btn-secondary" onclick="trocaDisplay('alterar_senha_div')">Alterar senha</button>
+                    <?php endif; ?>
                 </div>
             </div><br><br>
 
@@ -49,28 +50,30 @@
             </div>
         </div><br>
 
-        <div id="alterar_senha_div" class="invisivel">
-            <div id="div_edit_senha">
-                <div id="div_edit_senha_div">
+        <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'comum') : ?>
+            <div id="alterar_senha_div" class="invisivel">
+                <div id="div_edit_senha">
+                    <div id="div_edit_senha_div">
 
-                    <button id="div_edit_senha_div_fechar" onclick="trocaDisplay('alterar_senha_div')">X</button><br>
-                    
-                    <h3>Altere sua senha:</h3>
+                        <button id="div_edit_senha_div_fechar" onclick="trocaDisplay('alterar_senha_div')">X</button><br>
+                        
+                        <h3>Altere sua senha:</h3>
 
-                    <form action="perfil-editar-senha48reg84erg" method="post">
-                        <input class="input_alterar_senha" id="nova_senha" type="password" placeholder="Nova senha"><br>
-                        <span  class="span_alterar_senha" id="span_senha"></span><br><br>
+                        <form action="perfil-editar-senha48reg84erg" method="post">
+                            <input class="input_alterar_senha" id="nova_senha" type="password" placeholder="Nova senha" maxlength="8"><br>
+                            <span  class="span_alterar_senha" id="span_senha"></span><br><br>
 
-                        <input class="input_alterar_senha" id="conf_nova_senha" name="usuario_senha" type="password" placeholder="Confirme a nova senha"><br>
-                        <span  class="span_alterar_senha" id="span_confSenha"></span><br><br>
+                            <input class="input_alterar_senha" id="conf_nova_senha" name="usuario_senha" type="password" placeholder="Confirme a nova senha" maxlength="8"><br>
+                            <span  class="span_alterar_senha" id="span_confSenha"></span><br><br>
 
-                        <button id="alterar_senha_button" type="submit" class="btn btn-success">Alterar</button>
-                    </form>
+                            <button id="alterar_senha_button" type="submit" class="btn btn-success">Alterar</button>
+                        </form>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'comum') : ?>
             <h1>Planos adiquiridos</h1>

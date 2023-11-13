@@ -1,7 +1,9 @@
 
+--
 -- Banco de dados: `swiftnet_db`
 --
-CREATE DATABASE  `swiftnet_db`;
+
+
 -- --------------------------------------------------------
 
 --
@@ -42,10 +44,9 @@ CREATE TABLE `contratos` (
 --
 
 INSERT INTO `contratos` (`id_contratos`, `contratos_valor`, `contratos_vigencia`, `contratos_nome`, `contratos_user`, `contratos_tipo`) VALUES
-(1, 100.00, '2023-12-31', 'Contrato 1', 1, 'Banda Larga'),
-(2, 200.00, '2024-01-31', 'Contrato 2', 2, 'Banda Larga'),
 (10, 49.99, '2024-11-10', 'Plano Fixo 3', 1, 'Telefonia Fixa'),
-(11, 49.99, '2024-11-10', 'Plano Móvel 2', 1, 'Telefonia Móvel');
+(13, 69.99, '2024-11-12', 'Plano Móvel 3', 1, 'Telefonia Móvel'),
+(14, 99.99, '2024-11-13', 'Plano Banda 2', 1, 'Banda Larga');
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,29 @@ INSERT INTO `logs` (`id_log`, `log_data`, `log_user`, `log_tipo`, `log_2fa`) VAL
 (25, '2023-11-10 16:03:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
 (26, '2023-11-10 17:39:36', 1, 'logout', NULL),
 (27, '2023-11-10 19:17:05', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(28, '2023-11-10 19:17:11', 1, 'logout', NULL);
+(28, '2023-11-10 19:17:11', 1, 'logout', NULL),
+(29, '2023-11-12 21:15:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(30, '2023-11-12 21:15:59', 1, 'logout', NULL),
+(31, '2023-11-12 21:20:54', 1, 'login', 'Qual a sua data de nascimento?'),
+(32, '2023-11-12 21:33:10', 1, 'logout', NULL),
+(33, '2023-11-12 21:33:34', 1, 'login', 'Qual a sua data de nascimento?'),
+(34, '2023-11-12 21:47:43', 1, 'logout', NULL),
+(35, '2023-11-13 00:29:54', 1, 'login', 'Qual a sua data de nascimento?'),
+(36, '2023-11-13 00:30:56', 1, 'logout', NULL),
+(37, '2023-11-13 12:14:14', 1, 'login', 'Qual o CEP do seu endereço?'),
+(38, '2023-11-13 12:18:13', 1, 'logout', NULL),
+(39, '2023-11-13 12:21:06', 1, 'login', 'Qual o CEP do seu endereço?'),
+(40, '2023-11-13 12:21:30', 1, 'logout', NULL),
+(41, '2023-11-13 13:11:00', 1, 'login', 'Qual o CEP do seu endereço?'),
+(42, '2023-11-13 13:11:04', 1, 'logout', NULL),
+(43, '2023-11-13 14:02:43', 1, 'login', 'Qual a sua data de nascimento?'),
+(44, '2023-11-13 14:05:02', 1, 'logout', NULL),
+(45, '2023-11-13 14:06:12', 1, 'login', 'Qual o CEP do seu endereço?'),
+(46, '2023-11-13 14:06:18', 1, 'logout', NULL),
+(47, '2023-11-13 14:07:52', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(48, '2023-11-13 14:08:04', 1, 'logout', NULL),
+(49, '2023-11-13 14:08:48', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(50, '2023-11-13 14:09:26', 1, 'logout', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,22 +195,22 @@ INSERT INTO `planos` (`id_planos`, `planos_nome`, `planos_descricao`, `planos_de
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
-  `usuario_tipo` varchar(45) NOT NULL,
-  `usuario_nome` varchar(45) NOT NULL,
-  `usuario_mae` varchar(45) NOT NULL,
+  `usuario_tipo` varchar(10) NOT NULL,
+  `usuario_nome` varchar(90) NOT NULL,
+  `usuario_mae` varchar(90) NOT NULL,
   `usuario_sexo` varchar(45) NOT NULL,
-  `usuario_email` varchar(45) NOT NULL,
-  `usuario_senha` varchar(45) NOT NULL,
-  `usuario_login` varchar(45) NOT NULL,
-  `usuario_cep` int(11) NOT NULL,
+  `usuario_email` varchar(254) NOT NULL,
+  `usuario_senha` varchar(8) NOT NULL,
+  `usuario_login` varchar(6) NOT NULL,
+  `usuario_cep` varchar(9) NOT NULL,
   `usuario_uf` varchar(45) NOT NULL,
-  `usuario_cidade` varchar(45) NOT NULL,
-  `usuario_bairro` varchar(45) NOT NULL,
-  `usuario_rua` varchar(45) NOT NULL,
-  `usuario_numero` int(11) NOT NULL,
-  `usuario_complemento` varchar(45) DEFAULT NULL,
-  `usuario_telefone` int(11) NOT NULL,
-  `usuario_cel` int(11) NOT NULL,
+  `usuario_cidade` varchar(90) NOT NULL,
+  `usuario_bairro` varchar(90) NOT NULL,
+  `usuario_rua` varchar(90) NOT NULL,
+  `usuario_numero` varchar(90) NOT NULL,
+  `usuario_complemento` varchar(90) DEFAULT NULL,
+  `usuario_telefone` varchar(19) NOT NULL,
+  `usuario_cel` varchar(19) NOT NULL,
   `usuario_nascimento` date NOT NULL,
   `usuario_cpf` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -197,10 +220,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario_tipo`, `usuario_nome`, `usuario_mae`, `usuario_sexo`, `usuario_email`, `usuario_senha`, `usuario_login`, `usuario_cep`, `usuario_uf`, `usuario_cidade`, `usuario_bairro`, `usuario_rua`, `usuario_numero`, `usuario_complemento`, `usuario_telefone`, `usuario_cel`, `usuario_nascimento`, `usuario_cpf`) VALUES
-(1, 'comum', 'Maria', 'Mãe 1', 'M', 'email1@example.com', 'comum', 'comum', 12345, 'UF1', 'Cidade1', 'Bairro1', 'Rua1', 1, 'Complemento1', 12345678, 98765432, '1990-01-01', '123.456.789-01'),
-(2, 'comum', 'comum', 'Mãe 2', 'F', 'email2@example.com', 'senha2', 'login2', 54321, 'UF2', 'Cidade2', 'Bairro2', 'Rua2', 2, 'Complemento2', 87654321, 12349876, '1989-12-31', '987.654.321-02'),
-(3, 'master', 'master', 'Mãe 3', 'F', 'email2@examçle.com', 'master', 'master', 54321, 'UF2', 'Cidade2', 'Bairro2', 'Rua2', 2, 'Complemento2', 87654321, 12349876, '1989-12-31', '987.654.328-02'),
-(5, 'comum', 'comum', 'Mãe 2', 'F', 'email2@example.comh', 'senha2', 'login2h', 54321, 'UF2', 'Cidade2', 'Bairro2', 'Rua2', 2, 'Complemento2', 87654321, 12349876, '1989-12-31', '987.654.321-05');
+(1, 'comum', 'Mário Comum D. Siva', 'Mãe 1', 'Masculino', 'email1@example.com', 'kkkkkkkk', 'comuns', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro1', 'Rua1', '1', 'Complemento1', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1990-01-01', '123.456.789-01'),
+(2, 'comum', 'Joana Mário Comum D. Siva', 'Mãe 2', 'Feminino', 'email2@example.com', 'kkkkkkkk', 'loginn', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.321-02'),
+(3, 'master', 'master', 'Mãe 3', 'Masculino', 'email2@examçle.com', 'kkkkkkkk', 'master', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.328-02'),
+(13, 'comum', 'Thalles Ferreira Rodrigues', 'Mãe 4', 'Masculino', 'thallesfr97@hotmail.com', 'kkkkkkkk', 'kkkkkk', '21820-210', 'RJ', 'Rio de Janeiro', 'Bangu', 'Rua Amanajo', '55', 'b', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1997-09-20', '167.163.307-55');
 
 -- --------------------------------------------------------
 
@@ -304,7 +327,7 @@ ALTER TABLE `2fa`
 -- AUTO_INCREMENT de tabela `contratos`
 --
 ALTER TABLE `contratos`
-  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `franquia_dados`
@@ -322,7 +345,7 @@ ALTER TABLE `franquia_minutos`
 -- AUTO_INCREMENT de tabela `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `planos`
@@ -334,7 +357,7 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `velocidade`
@@ -367,6 +390,3 @@ ALTER TABLE `planos`
   ADD CONSTRAINT `planos_velocidade` FOREIGN KEY (`planos_velocidade`) REFERENCES `velocidade` (`id_velocidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

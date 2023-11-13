@@ -1,7 +1,27 @@
 <title><?php echo $title ?></title>
 <main id="usuariosMain">
+
+    <form id="form_pesquisa_usuario" method="post" action="usuarios">
+        <div>
+            <input id="input_pesquisa_usuario" name="busca" value="<?php if (isset($_POST['busca'])) echo $_POST['busca']; ?>" placeholder="Digite o nome do usuário" type="text">
+            <button id="button_pesquisa_usuario" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </button>
+        </div>
+    </form>
     <div id="usuarios">
-        <?php if (count($usuarios) > 0) : ?>
+        <?php
+        $tipo_comum = 0;
+        foreach ($usuarios as $usuario) {
+            if ($usuario['usuario_tipo'] === 'comum') {
+                $tipo_comum++;
+            }
+        }
+
+        if ($tipo_comum > 0) : ?>
+
             <div id="containerUsuario">
                 <h5 class="camposListaUsers">Nome</h5><br>
                 <h5 class="camposListaUsers">CPF</h5><br>
@@ -11,6 +31,7 @@
 
             <!---------------------------------------------------------lista de usuários ---------------------------------------------------------->
             <?php foreach ($usuarios as $usuario) :
+
                 if ($usuario['usuario_tipo'] === 'comum') :
 
                     $id_user = $usuario['id_usuario']; ?>
@@ -22,8 +43,9 @@
 
                         <div id="botoes_list_users">
                             <button title="Detalhes do usuário" class="detalhes_user" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="trocaDisplay('<?= $id_user ?>')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                    <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
                                 </svg>
                             </button>
                             <a title="Deletar usuário" class="deleteLixeira" onclick="trocaDisplay('alert_user<?= $id_user ?>')">
@@ -75,7 +97,7 @@
                             <ul id="detalhes_card_contratos_texto" class="list-group list-group-horizontal">
                                 <li id="detalhes_card_contratos_plano" class="list-group-item"><?= $contrato['contratos_nome'] ?></li>
                                 <li id="detalhes_card_contratos_vigen" class="list-group-item"><?= date("d/m/Y ", strtotime($contrato['contratos_vigencia'])) ?></li>
-                                <li id="detalhes_card_contratos_valor" class="list-group-item"><?= "R$" . number_format($contrato['contratos_valor'], 2, ',', '.')?></li>
+                                <li id="detalhes_card_contratos_valor" class="list-group-item"><?= "R$" . number_format($contrato['contratos_valor'], 2, ',', '.') ?></li>
                             </ul>
                     <?php endif;
                     endforeach;
@@ -117,5 +139,6 @@
 <?php else : ?>
     <h2 id="textvazio" class="carrinhoVazio">Você não tem usuários registrados.</h2><br>
 <?php endif; ?>
+
 </div>
 </main>

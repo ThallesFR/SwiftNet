@@ -18,5 +18,4 @@ $routes = [
     '/perfil' => 'PerfilController@index',
     '/perfil-editar-senha48reg84erg' => 'PerfilController@editar_senha',
     '/perfil-deletar-planowe456erg546erg' => 'PerfilController@delete_contrato'
-
 ];

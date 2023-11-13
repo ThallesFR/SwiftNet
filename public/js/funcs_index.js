@@ -14,7 +14,3 @@ function trocaDisplay(id) {
     }
 }
 
-///////////////////////////
-function oi (testo){
-    console.log(testo);
-}

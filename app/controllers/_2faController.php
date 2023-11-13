@@ -39,7 +39,7 @@ class _2faController extends RenderViews
         $Auth = new Auth();
         $Auth->autenticacao($pergunta, $resposta, $id_user);
 
-        if (!isset($_SESSION['user'])|| $_SESSION['tipo']=='master') {
+        if (!isset($_SESSION['user']) || $_SESSION['tipo'] == 'master') {
             header('Location: http://localhost/SwiftNet/');
             die();
         }
@@ -56,3 +56,4 @@ class _2faController extends RenderViews
         header('Location: http://localhost/SwiftNet/');
     }
 }
+

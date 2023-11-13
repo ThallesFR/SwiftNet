@@ -9,8 +9,18 @@
         </h4><br>
 
         <input name="pergunta_2fa" value="<?= $perguntas?>" type="hidden">
+        
+        <?php if ($perguntas == 'Qual o nome completo da sua mãe?') : ?>
+            <input class="input_2fa" name="resposta_2fa" id="nomemae"  placeholder="Resposta" maxlength="60"><br>
+        <?php endif; ?>
 
-        <input name="resposta_2fa" id="input_2fa" type="text" placeholder="Resposta"><br>
+        <?php if ($perguntas == 'Qual a sua data de nascimento?') : ?>
+            <input class="input_2fa" name="resposta_2fa"  id="datanasci" type="date" placeholder="Resposta" maxlength="8"><br>
+        <?php endif; ?>
+
+        <?php if ($perguntas == 'Qual o CEP do seu endereço?') : ?>
+            <input class="input_2fa"  name="resposta_2fa" id="CEP" placeholder="Resposta" maxlength="9"><br>
+        <?php endif; ?>        
 
         <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -19,3 +29,4 @@
         </button>
     </form>
 </main>
+<script src="<?php echo  generateUrl('/public/js/mascara_2fa.js'); ?>"></script>
