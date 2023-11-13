@@ -630,8 +630,8 @@ h2 {
 #card_detalhes_users_div {
   background: white;
   width: 50%;
-  min-height: 100%;
-  padding: 50px;
+  height: 100%;
+  padding: 10px;
 
 }
 
@@ -639,12 +639,15 @@ h2 {
   text-align: left;
 }
 
-.card_detalhes_users h2 {
+.card_detalhes_users h2{
   width: 100%;
   text-align: center;
   color: #5E1C6F;
   text-decoration: underline;
+}
 
+.card_detalhes_users h3{
+  color: #902DA9;
 }
 
 #botoes_list_users {
@@ -712,32 +715,44 @@ h2 {
   border-radius: 5px;
 }
 
-#h3_logs {
-  color: #5E1C6F;
+#detalhes_card_contratos{
+  width: 90%;
+  height: 25%;
+}
+
+#detalhes_card_contratos_title li{
+  color: white ;
+  background: #33083d;
+}
+
+#detalhes_card_contratos_plano,
+#detalhes_card_contratos_vigen{
+  width: 35% !important;
+}
+
+#detalhes_card_contratos_valor{
+  width: 30% !important;
 }
 
 #logs_users {
   width: 90%;
-  height: 500px;
+  height: 50%;
+  padding-left: 5%;
   overflow: auto;
 }
 
 #cards_log {
+  width: 90%;
   padding-bottom: 3px;
   padding-left: 5%;
-  margin-bottom: 3%;
+  margin-bottom: 3px;
   border-bottom: solid 1px #b237ce;
-  display: flex;
-  justify-content: space-between;
 }
 
-
-
-@media (max-width: 850px) {
-  #cards_log_login_logout {
-    display: block;
+@media (max-width: 1200px){
+  #usuariosMain{
+    font-size: small;
   }
-
 }
 
 @media (max-width: 750px) {
@@ -753,6 +768,7 @@ h2 {
 
   #card_detalhes_users_div {
     width: 100%;
+
   }
 
   #botoes_list_users svg {
@@ -761,13 +777,17 @@ h2 {
   }
 
   #logs_users {
-    height: 300px;
+    width: 100%;
   }
 
-  #cards_log {
-    display: block;
+  #detalhes_card_contratos{
+    width: 100%;
   }
 
+}
+
+@media (max-width: 750px) {
+  
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

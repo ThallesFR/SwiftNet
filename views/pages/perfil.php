@@ -19,7 +19,7 @@
                 <div id="infoPessoais1">
                     <label for="nome">Nome: <?= $userData['usuario_nome'] ?></label><br>
                     <label for="nome_mae">Nome da Mãe: <?= $userData['usuario_mae'] ?></label><br>
-                    <label for="datanasci">Data de nascimento: <?= $userData['usuario_nascimento'] ?></label><br>
+                    <label for="datanasci">Data de nascimento: <?= date("d/m/Y ", strtotime($userData['usuario_nascimento'])) ?></label><br>
                     <label for="sexo">Sexo: <?= $userData['usuario_sexo'] ?></label><br>
                     <label for="cpf">CPF: <?= $userData['usuario_cpf'] ?></label><br>
                     <label for="tel_fixo">Telefone fixo: <?= $userData['usuario_telefone'] ?></label><br>
@@ -88,11 +88,11 @@
                             </div>
                             <div>
                                 <h5>Vigência</h5><br>
-                                <p><?= $contrato['contratos_vigencia'] ?></p>
+                                <p><?= date("d/m/Y ", strtotime($contrato['contratos_vigencia'])) ?></p>
                             </div>
                             <div>
                                 <h5>Valor/mês</h5><br>
-                                <p><?= $contrato['contratos_valor'] ?></p>
+                                <p><?= "R$" . number_format($contrato['contratos_valor'], 2, ',', '.')?></p>
                             </div>
                         </div>
                     <?php endforeach ?>
