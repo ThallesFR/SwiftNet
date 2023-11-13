@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/../../libraries/tcpdf/tcpdf.php';
+
 
 class UserController extends RenderViews
 {
@@ -8,7 +10,7 @@ class UserController extends RenderViews
         $Auth->protect('master');
 
         $usuarios_model = new UserModel();
-        
+
         if (!isset($_POST['busca'])) {
             $usuarios = $usuarios_model->select_tabel();
         } else {
@@ -50,5 +52,38 @@ class UserController extends RenderViews
         header('location: http://localhost/SwiftNet/usuarios');
     }
 
-   
+    public function gerar_pdf()
+    {
+        ob_end_clean(); // Limpa o buffer de saída antes de gerar o PDF
+        ob_start(); // Inicia o buffer de saída
+
+        $usuarios_model = new UserModel();
+        $usuarios = $usuarios_model->select_tabel();
+
+        $pdf = new TCPDF();
+        $pdf->SetMargins(10, 10, 10);
+        $pdf->AddPage();
+
+        $html = '<table border="1">';
+        $html .= '<h1> Usuários SwiftNet </h1> <br><br> <tr><th> ID </th><th> Nome </th><th> Email </th></tr>';
+
+        foreach ($usuarios as $row) {
+            if ($row['usuario_tipo'] === 'comum') {
+                $html .= '<tr> ';
+                $html .= '<td> ' . $row['id_usuario'] . '</td>';
+                $html .= '<td> ' . $row['usuario_nome'] . '</td>';
+                $html .= '<td> ' . $row['usuario_email'] . '</td>';
+                $html .= '</tr> ';
+            }
+        }
+
+        $html .= '</table>';
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        ob_end_clean(); // Limpa o buffer de saída antes de gerar o PDF
+
+        $pdf->Output('relatorio.pdf', 'D');
+        // Remova a linha de redirecionamento header se não for necessário
+        // header('location: http://localhost/SwiftNet/usuarios');
+    }
 }

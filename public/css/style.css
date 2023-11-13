@@ -588,8 +588,17 @@ h2 {
   margin-top: 5vh;
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
 }
+
+.pdf_user {
+  color: red;
+}
+
+.pdf_user:hover {
+  color: blue;
+}
+
 
 #form_pesquisa_usuario div {
   border: solid 2px #5E1C6F;
@@ -599,7 +608,7 @@ h2 {
 
 #input_pesquisa_usuario {
   border: none;
-  background: none; 
+  background: none;
   outline: none;
 }
 
@@ -609,8 +618,8 @@ h2 {
   color: #33083d;
 }
 
-#button_pesquisa_usuario :hover{
-  color:#c857e4
+#button_pesquisa_usuario :hover {
+  color: #c857e4
 }
 
 #containerUsuario {
@@ -793,9 +802,15 @@ h2 {
     padding: 0px;
   }
 
-  #form_pesquisa_usuario div{
-    margin-left: 10px;
+  #form_pesquisa_usuario {
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
+  .pdf_user svg {
+    width: 20px;
+  }
+
 
   #containerUsuario h5 {
     font-size: x-small;
@@ -821,7 +836,6 @@ h2 {
 
 }
 
-@media (max-width: 750px) {}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////              Planos                     //////////////////////////////////////////////////////////////////////////
