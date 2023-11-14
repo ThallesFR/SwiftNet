@@ -2,6 +2,8 @@
 --
 -- Banco de dados: `swiftnet_db`
 --
+CREATE DATABASE IF NOT EXISTS `swiftnet_db`;
+USE `swiftnet_db`;
 
 
 -- --------------------------------------------------------
@@ -109,8 +111,6 @@ CREATE TABLE `logs` (
 INSERT INTO `logs` (`id_log`, `log_data`, `log_user`, `log_tipo`, `log_2fa`) VALUES
 (5, '2023-11-10 03:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
 (6, '2023-11-10 03:40:49', 1, 'logout', ''),
-(7, '2023-11-10 03:40:49', 2, 'login', 'Qual o nome da sua mãe?'),
-(8, '2023-11-10 03:40:49', 2, 'logout', ''),
 (10, '2023-11-10 03:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
 (11, '2023-11-10 03:40:49', 1, 'logout', ''),
 (12, '2023-11-10 03:40:49', 1, 'logout', ''),
@@ -223,7 +223,7 @@ INSERT INTO `usuario` (`id_usuario`, `usuario_tipo`, `usuario_nome`, `usuario_ma
 (1, 'comum', 'Mário Comum D. Siva', 'Mãe 1', 'Masculino', 'email1@example.com', 'kkkkkkkk', 'comuns', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro1', 'Rua1', '1', 'Complemento1', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1990-01-01', '123.456.789-01'),
 (2, 'comum', 'Joana Mário Comum D. Siva', 'Mãe 2', 'Feminino', 'email2@example.com', 'kkkkkkkk', 'loginn', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.321-02'),
 (3, 'master', 'master', 'Mãe 3', 'Masculino', 'email2@examçle.com', 'kkkkkkkk', 'master', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.328-02'),
-(13, 'comum', 'Thalles Ferreira Rodrigues', 'Mãe 4', 'Masculino', 'thallesfr97@hotmail.com', 'kkkkkkkk', 'kkkkkk', '21820-210', 'RJ', 'Rio de Janeiro', 'Bangu', 'Rua Amanajo', '55', 'b', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1997-09-20', '167.163.307-55');
+(13, 'comum', 'Thalles Ferreira Rodrigues', 'Mãe 4', 'Masculino', 'thallesfr97@hotmail.com', 'kkkkkkkk', 'kkkkkk', '21820-210', 'RJ', 'Rio de Janeiro', 'Bangu', 'Rua Rio da Prata', '55', 'b', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1997-09-20', '123.456.789-02');
 
 -- --------------------------------------------------------
 

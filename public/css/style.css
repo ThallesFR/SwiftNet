@@ -781,6 +781,13 @@ h2 {
   overflow: auto;
 }
 
+#titulo_logs{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 15%;
+}
+
 #cards_log {
   width: 90%;
   padding-bottom: 3px;
@@ -1007,7 +1014,7 @@ h2 {
   min-width: 200px;
 }
 
-#mainLogin input {
+.mainLogin_input {
   border-radius: 5px;
   border-color: #2e2e2e4b;
   padding: 5px;
@@ -1031,8 +1038,17 @@ h2 {
   text-decoration: none;
 }
 
+#div_check_login {
+  text-align: left;
+  margin-left: 27%;
+}
+
+#div_check_login div{
+  width:20px;
+}
+
 #btn_login {
-  margin-top: 10%;
+  margin-top: 2%;
   border: 0px;
   color: #902DA9;
   background-color: white;
@@ -1068,6 +1084,9 @@ h2 {
     font-size: small;
   }
 
+  #div_check_login{
+    font-size: small;
+  }
 }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

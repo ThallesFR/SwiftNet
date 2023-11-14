@@ -10,13 +10,14 @@ class Auth extends DatabaseConect
         $this->pdo = $this->getConnection();
     }
 
-    public function login($Post_login, $Post_senha)
+    public function login($Post_login, $Post_senha, $Post_tipo)
     {
-        if (!empty($Post_login) && !empty($Post_senha)) {
-            $sql_code = "SELECT id_usuario, usuario_tipo FROM usuario WHERE usuario_login = :usuario_login AND usuario_senha = :senha";
+        if (!empty($Post_login) && !empty($Post_senha) && !empty($Post_tipo)) {
+            $sql_code = "SELECT id_usuario, usuario_tipo FROM usuario WHERE usuario_login = :usuario_login AND usuario_senha = :senha AND usuario_tipo = :tipo";
             $stmt = $this->pdo->prepare($sql_code);
             $stmt->bindParam(':usuario_login', $Post_login);
             $stmt->bindParam(':senha', $Post_senha);
+            $stmt->bindParam(':tipo', $Post_tipo);
             $stmt->execute();
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -28,12 +29,12 @@ class Auth extends DatabaseConect
             }
 
 
-            if ($usuario['usuario_tipo'] == "comum") {
+            if ($Post_tipo == "comum") {
                 // Redireciona para a página 'autenticacao' passando os parâmetros via URL
                 header("Location: autenticacao/asdklksdaas648/" . $usuario['id_usuario']);
             }
 
-            if ($usuario['usuario_tipo'] == "master") {
+            if ($Post_tipo == "master") {
                 if ($usuario) {
                     // Verifica se a sessão já foi iniciada
                     if (!isset($_SESSION)) {

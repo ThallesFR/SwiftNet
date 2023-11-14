@@ -52,29 +52,33 @@ class UserController extends RenderViews
         header('location: http://localhost/SwiftNet/usuarios');
     }
 
-    public function gerar_pdf()
+    public function gerar_pdf($id)
     {
         ob_end_clean(); // Limpa o buffer de saída antes de gerar o PDF
         ob_start(); // Inicia o buffer de saída
 
-        $usuarios_model = new UserModel();
-        $usuarios = $usuarios_model->select_tabel();
+        $id_user = $id[0];
+
+
+        $logs_model = new LogsModel();
+        $logs = $logs_model->select_by_id_logs_user($id_user);
+
+        $usuario_model = new UserModel();
+        $usuario = $usuario_model->select_id($id_user);
 
         $pdf = new TCPDF();
         $pdf->SetMargins(10, 10, 10);
         $pdf->AddPage();
 
         $html = '<table border="1">';
-        $html .= '<h1> Usuários SwiftNet </h1> <br><br> <tr><th> ID </th><th> Nome </th><th> Email </th></tr>';
+        $html .= '<h1> Logs do usuário ' . $usuario['usuario_nome'] . '.</h1> <br><br> <tr><th> Tipo </th><th> Autenticação </th><th> Data/hora </th></tr>';
 
-        foreach ($usuarios as $row) {
-            if ($row['usuario_tipo'] === 'comum') {
-                $html .= '<tr> ';
-                $html .= '<td> ' . $row['id_usuario'] . '</td>';
-                $html .= '<td> ' . $row['usuario_nome'] . '</td>';
-                $html .= '<td> ' . $row['usuario_email'] . '</td>';
-                $html .= '</tr> ';
-            }
+        foreach ($logs as $row) {
+            $html .= '<tr> ';
+            $html .= '<td> ' . $row['log_tipo'] . '</td>';
+            $html .= '<td> ' . $row['log_2fa'] . '</td>';
+            $html .= '<td> ' . date("d/m/Y H:i:s", strtotime($row['log_data'])) . '</td>';
+            $html .= '</tr> ';
         }
 
         $html .= '</table>';
@@ -83,7 +87,5 @@ class UserController extends RenderViews
         ob_end_clean(); // Limpa o buffer de saída antes de gerar o PDF
 
         $pdf->Output('relatorio.pdf', 'D');
-        // Remova a linha de redirecionamento header se não for necessário
-        // header('location: http://localhost/SwiftNet/usuarios');
     }
 }

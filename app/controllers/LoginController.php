@@ -21,12 +21,13 @@ class LoginController extends RenderViews
             die();
         }
 
+        $tipo_usuario= $_POST['flexRadioDefault'];
         $login = $_POST['usuario_login'];
         $senha = $_POST['senha'];
 
         $Auth = new Auth();
 
-        $Auth->login($login, $senha);
+        $Auth->login($login, $senha, $tipo_usuario);
     }
 
     public function logout_user(){
