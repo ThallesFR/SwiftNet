@@ -40,6 +40,18 @@ class UserModel extends DatabaseConect
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    
+    public function select_login_cpf($login, $cpf, $email)
+    {
+        $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE usuario_login = :login_user OR usuario_cpf = :cpf OR usuario_email = :email");
+        $stm->bindValue(":login_user", $login);
+        $stm->bindValue(":cpf", $cpf);
+        $stm->bindValue(":email", $email);
+        $stm->execute();
+
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
     public function insert($dados)
     {
