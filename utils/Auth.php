@@ -12,11 +12,13 @@ class Auth extends DatabaseConect
 
     public function login($Post_login, $Post_senha, $Post_tipo)
     {
+        $hashed_senha_fornecida = hash('sha256', $Post_senha);
+
         if (!empty($Post_login) && !empty($Post_senha) && !empty($Post_tipo)) {
             $sql_code = "SELECT id_usuario, usuario_tipo FROM usuario WHERE usuario_login = :usuario_login AND usuario_senha = :senha AND usuario_tipo = :tipo";
             $stmt = $this->pdo->prepare($sql_code);
             $stmt->bindParam(':usuario_login', $Post_login);
-            $stmt->bindParam(':senha', $Post_senha);
+            $stmt->bindParam(':senha', $hashed_senha_fornecida);
             $stmt->bindParam(':tipo', $Post_tipo);
             $stmt->execute();
 

@@ -48,7 +48,7 @@ CREATE TABLE `contratos` (
 INSERT INTO `contratos` (`id_contratos`, `contratos_valor`, `contratos_vigencia`, `contratos_nome`, `contratos_user`, `contratos_tipo`) VALUES
 (10, 49.99, '2024-11-10', 'Plano Fixo 3', 1, 'Telefonia Fixa'),
 (13, 69.99, '2024-11-12', 'Plano Móvel 3', 1, 'Telefonia Móvel'),
-(14, 99.99, '2024-11-13', 'Plano Banda 2', 1, 'Banda Larga');
+(15, 99.99, '2024-11-20', 'Plano Banda 2', 30, 'Banda Larga');
 
 -- --------------------------------------------------------
 
@@ -109,49 +109,62 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`id_log`, `log_data`, `log_user`, `log_tipo`, `log_2fa`) VALUES
-(5, '2023-11-10 03:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
-(6, '2023-11-10 03:40:49', 1, 'logout', ''),
-(10, '2023-11-10 03:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
-(11, '2023-11-10 03:40:49', 1, 'logout', ''),
-(12, '2023-11-10 03:40:49', 1, 'logout', ''),
-(13, '2023-11-10 03:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
-(14, '2023-11-10 06:53:24', 1, 'login', 'Qual o CEP do seu endereço?'),
-(15, '2023-11-10 06:57:32', 1, 'logout', NULL),
-(16, '2023-11-10 06:58:29', 3, 'logout', NULL),
-(17, '2023-11-10 07:00:50', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(18, '2023-11-10 07:00:58', 1, 'logout', NULL),
-(19, '2023-11-10 07:15:57', 1, 'login', 'Qual a sua data de nascimento?'),
-(20, '2023-11-10 07:16:28', 1, 'logout', NULL),
-(21, '2023-11-10 13:54:29', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(22, '2023-11-10 15:07:43', 1, 'logout', NULL),
-(23, '2023-11-10 15:40:45', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(24, '2023-11-10 15:43:44', 1, 'logout', NULL),
-(25, '2023-11-10 16:03:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(26, '2023-11-10 17:39:36', 1, 'logout', NULL),
-(27, '2023-11-10 19:17:05', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(28, '2023-11-10 19:17:11', 1, 'logout', NULL),
-(29, '2023-11-12 21:15:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(30, '2023-11-12 21:15:59', 1, 'logout', NULL),
-(31, '2023-11-12 21:20:54', 1, 'login', 'Qual a sua data de nascimento?'),
-(32, '2023-11-12 21:33:10', 1, 'logout', NULL),
-(33, '2023-11-12 21:33:34', 1, 'login', 'Qual a sua data de nascimento?'),
-(34, '2023-11-12 21:47:43', 1, 'logout', NULL),
-(35, '2023-11-13 00:29:54', 1, 'login', 'Qual a sua data de nascimento?'),
-(36, '2023-11-13 00:30:56', 1, 'logout', NULL),
-(37, '2023-11-13 12:14:14', 1, 'login', 'Qual o CEP do seu endereço?'),
-(38, '2023-11-13 12:18:13', 1, 'logout', NULL),
-(39, '2023-11-13 12:21:06', 1, 'login', 'Qual o CEP do seu endereço?'),
-(40, '2023-11-13 12:21:30', 1, 'logout', NULL),
-(41, '2023-11-13 13:11:00', 1, 'login', 'Qual o CEP do seu endereço?'),
-(42, '2023-11-13 13:11:04', 1, 'logout', NULL),
-(43, '2023-11-13 14:02:43', 1, 'login', 'Qual a sua data de nascimento?'),
-(44, '2023-11-13 14:05:02', 1, 'logout', NULL),
-(45, '2023-11-13 14:06:12', 1, 'login', 'Qual o CEP do seu endereço?'),
-(46, '2023-11-13 14:06:18', 1, 'logout', NULL),
-(47, '2023-11-13 14:07:52', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(48, '2023-11-13 14:08:04', 1, 'logout', NULL),
-(49, '2023-11-13 14:08:48', 1, 'login', 'Qual o nome completo da sua mãe?'),
-(50, '2023-11-13 14:09:26', 1, 'logout', NULL);
+(5, '2023-11-10 06:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
+(6, '2023-11-10 06:40:49', 1, 'logout', ''),
+(10, '2023-11-10 06:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
+(11, '2023-11-10 06:40:49', 1, 'logout', ''),
+(12, '2023-11-10 06:40:49', 1, 'logout', ''),
+(13, '2023-11-10 06:40:49', 1, 'login', 'Qual o nome da sua mãe?'),
+(14, '2023-11-10 09:53:24', 1, 'login', 'Qual o CEP do seu endereço?'),
+(15, '2023-11-10 09:57:32', 1, 'logout', NULL),
+(17, '2023-11-10 10:00:50', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(18, '2023-11-10 10:00:58', 1, 'logout', NULL),
+(19, '2023-11-10 10:15:57', 1, 'login', 'Qual a sua data de nascimento?'),
+(20, '2023-11-10 10:16:28', 1, 'logout', NULL),
+(21, '2023-11-10 16:54:29', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(22, '2023-11-10 18:07:43', 1, 'logout', NULL),
+(23, '2023-11-10 18:40:45', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(24, '2023-11-10 18:43:44', 1, 'logout', NULL),
+(25, '2023-11-10 19:03:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(26, '2023-11-10 20:39:36', 1, 'logout', NULL),
+(27, '2023-11-10 22:17:05', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(28, '2023-11-10 22:17:11', 1, 'logout', NULL),
+(29, '2023-11-13 00:15:57', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(30, '2023-11-13 00:15:59', 1, 'logout', NULL),
+(31, '2023-11-13 00:20:54', 1, 'login', 'Qual a sua data de nascimento?'),
+(32, '2023-11-13 00:33:10', 1, 'logout', NULL),
+(33, '2023-11-13 00:33:34', 1, 'login', 'Qual a sua data de nascimento?'),
+(34, '2023-11-13 00:47:43', 1, 'logout', NULL),
+(35, '2023-11-13 03:29:54', 1, 'login', 'Qual a sua data de nascimento?'),
+(36, '2023-11-13 03:30:56', 1, 'logout', NULL),
+(37, '2023-11-13 15:14:14', 1, 'login', 'Qual o CEP do seu endereço?'),
+(38, '2023-11-13 15:18:13', 1, 'logout', NULL),
+(39, '2023-11-13 15:21:06', 1, 'login', 'Qual o CEP do seu endereço?'),
+(40, '2023-11-13 15:21:30', 1, 'logout', NULL),
+(41, '2023-11-13 16:11:00', 1, 'login', 'Qual o CEP do seu endereço?'),
+(42, '2023-11-13 16:11:04', 1, 'logout', NULL),
+(43, '2023-11-13 17:02:43', 1, 'login', 'Qual a sua data de nascimento?'),
+(44, '2023-11-13 17:05:02', 1, 'logout', NULL),
+(45, '2023-11-13 17:06:12', 1, 'login', 'Qual o CEP do seu endereço?'),
+(46, '2023-11-13 17:06:18', 1, 'logout', NULL),
+(47, '2023-11-13 17:07:52', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(48, '2023-11-13 17:08:04', 1, 'logout', NULL),
+(49, '2023-11-13 17:08:48', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(50, '2023-11-13 17:09:26', 1, 'logout', NULL),
+(51, '2023-11-20 14:28:33', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(52, '2023-11-20 14:31:37', 1, 'logout', NULL),
+(55, '2023-11-20 15:02:15', 1, 'login', 'Qual o CEP do seu endereço?'),
+(56, '2023-11-20 15:02:52', 1, 'logout', NULL),
+(57, '2023-11-20 15:03:41', 1, 'login', 'Qual o CEP do seu endereço?'),
+(58, '2023-11-20 15:18:45', 1, 'logout', NULL),
+(59, '2023-11-20 15:23:02', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(60, '2023-11-20 15:23:04', 1, 'logout', NULL),
+(61, '2023-11-20 22:35:08', 1, 'login', 'Qual o nome completo da sua mãe?'),
+(62, '2023-11-20 22:38:55', 1, 'logout', NULL),
+(63, '2023-11-20 22:40:08', 1, 'login', 'Qual o CEP do seu endereço?'),
+(64, '2023-11-20 22:40:18', 1, 'logout', NULL),
+(65, '2023-11-20 22:44:07', 30, 'login', 'Qual a sua data de nascimento?'),
+(66, '2023-11-20 22:44:13', 30, 'logout', NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +213,7 @@ CREATE TABLE `usuario` (
   `usuario_mae` varchar(90) NOT NULL,
   `usuario_sexo` varchar(45) NOT NULL,
   `usuario_email` varchar(254) NOT NULL,
-  `usuario_senha` varchar(8) NOT NULL,
+  `usuario_senha` varchar(260) NOT NULL,
   `usuario_login` varchar(6) NOT NULL,
   `usuario_cep` varchar(9) NOT NULL,
   `usuario_uf` varchar(45) NOT NULL,
@@ -220,10 +233,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario_tipo`, `usuario_nome`, `usuario_mae`, `usuario_sexo`, `usuario_email`, `usuario_senha`, `usuario_login`, `usuario_cep`, `usuario_uf`, `usuario_cidade`, `usuario_bairro`, `usuario_rua`, `usuario_numero`, `usuario_complemento`, `usuario_telefone`, `usuario_cel`, `usuario_nascimento`, `usuario_cpf`) VALUES
-(1, 'comum', 'Mário Comum D. Siva', 'Mãe 1', 'Masculino', 'email1@example.com', 'kkkkkkkk', 'comuns', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro1', 'Rua1', '1', 'Complemento1', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1990-01-01', '123.456.789-01'),
-(2, 'comum', 'Joana Mário Comum D. Siva', 'Mãe 2', 'Feminino', 'email2@example.com', 'kkkkkkkk', 'loginn', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.321-02'),
-(3, 'master', 'master', 'Mãe 3', 'Masculino', 'email2@examçle.com', 'kkkkkkkk', 'master', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.328-02'),
-(13, 'comum', 'Thalles Ferreira Rodrigues', 'Mãe 4', 'Masculino', 'thallesfr97@hotmail.com', 'kkkkkkkk', 'kkkkkk', '21820-210', 'RJ', 'Rio de Janeiro', 'Bangu', 'Rua Rio da Prata', '55', 'b', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1997-09-20', '123.456.789-02');
+(1, 'comum', 'Mário Comum D. Siva', 'Mãe 1', 'Masculino', 'email1@example.com', 'fa0422d5025ecfa96b9f58a222dc7422f2bdfa184e0880954e28563974e393a6', 'comuns', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro1', 'Rua1', '1', 'Complemento1', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1990-01-01', '123.456.789-01'),
+(30, 'comum', 'Thalles Ferreira Rodrigues', 'Manuela Ferreira Rodrigues', 'Masculino', 'thallesfr97@hotmail.com', 'fa0422d5025ecfa96b9f58a222dc7422f2bdfa184e0880954e28563974e393a6', 'tttttt', '21820-096', 'RJ', 'Rio de Janeiro', 'Bangu', 'Rua Rio da Prata', '154', 'fundos', '+55 (21) 9944-5815', '+55 (55) 55555-5555', '1995-08-10', '123.456.789-09'),
+(31, 'master', 'nome do usuário', 'Mãe 3', 'Masculino', 'email2@example.com', 'fa0422d5025ecfa96b9f58a222dc7422f2bdfa184e0880954e28563974e393a6', 'master', '21829-215', 'RJ', 'Rio de Janeiro', 'Bairro2', 'Rua2', '2', 'Complemento2', '+22 (22) 22222-2222', '+22 (22) 22222-2222', '1989-12-31', '987.654.328-09');
 
 -- --------------------------------------------------------
 
@@ -327,7 +339,7 @@ ALTER TABLE `2fa`
 -- AUTO_INCREMENT de tabela `contratos`
 --
 ALTER TABLE `contratos`
-  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_contratos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `franquia_dados`
@@ -345,7 +357,7 @@ ALTER TABLE `franquia_minutos`
 -- AUTO_INCREMENT de tabela `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de tabela `planos`
@@ -357,7 +369,7 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `velocidade`
@@ -389,4 +401,3 @@ ALTER TABLE `planos`
   ADD CONSTRAINT `planos_fminutos` FOREIGN KEY (`planos_fminutos`) REFERENCES `franquia_minutos` (`id_franquia_minutos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `planos_velocidade` FOREIGN KEY (`planos_velocidade`) REFERENCES `velocidade` (`id_velocidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
-

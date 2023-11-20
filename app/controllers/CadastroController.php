@@ -22,6 +22,9 @@ class CadastroController extends RenderViews
         $login = $_POST['usuario_login'];
         $cpf = $_POST['usuario_cpf'];
         $email = $_POST['usuario_email'];
+       
+        $_POST['usuario_senha']= hash('sha256', $_POST['usuario_senha']);
+       
         $user_model = new UserModel;
 
         $existir =$user_model->select_login_cpf($login,$cpf,$email);

@@ -29,7 +29,7 @@ class PerfilController extends RenderViews
     public function editar_senha()
     {
         $usuarios_model = new UserModel();
-        $usuarios_model->update_senha($_SESSION['user'],$_POST['usuario_senha']);
+        $usuarios_model->update_senha($_SESSION['user'],hash('sha256', $_POST['usuario_senha']));
 
         $controller_alert = new AlertasController();
         $controller_alert->enviar_alerta('success', 'Operação finalizada!', 'Senha alterada com sucesso.', 'http://localhost/SwiftNet/perfil');
