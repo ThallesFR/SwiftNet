@@ -6,7 +6,7 @@
                 <img src="<?php echo  generateUrl('/public/images/banners/internet.jpg') ?>" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="4000">
-                <img src="<?php echo  generateUrl('/public/images/banners/internet.jpg') ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo  generateUrl('/public/images/banners/bannerHome.jpeg') ?>" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
